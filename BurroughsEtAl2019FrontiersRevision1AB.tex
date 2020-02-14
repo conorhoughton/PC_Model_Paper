@@ -237,8 +237,19 @@ $I_{\leak}$ is a leak current,
 \label{eq:I_L}
 I_{\leak} =\bar{g}_{\leak}(E_\leak-V)
 \end{equation}
-with $\bar{g}_{\leak} = 2\msi$ and $E_{\leak}=
--88\mv$. $I_{\mathrm{e}}$ stands for the external input current. This is described below and is made up of a background current and a synaptic current entering the soma from the dendrites. $I_{\na}$ and $I_{\k}$ stand for the sodium current and the potassium current; the sodium current includes the resurgent gates that are typical of Purkinje cells. Since sodium and potassium currents are required to produce a
+with $\bar{g}_{\leak} = 2\msi$ and
+$E_{\leak}=-88\mv$. $I_{\mathrm{e}}$ stands for the external input
+current. This is described below and is made up of a background
+current and a synaptic current entering the soma from the
+dendrites. $I_{\na}$ and $I_{\k}$ stand for the sodium current and the
+potassium current; the sodium current includes the resurgent dynamics
+that are typical of Purkinje cells
+\cite{RamanBean1997,RamanBean2001,KhaliqEtAl2003,KhaliqRaman2006}. Since
+complex spikes are sodium spikes \cite{StuartHausser1994}, this is a
+minimum model containing the least possible number of currents; the
+key contribution of this model is to demonstrate that the sodium
+resurgence found in Purkinje cells is a sufficient as a mechanism for
+producing the complex spike waveform.
 
 The second model includes some of the effects of calcium dynamics and
 will be referred to as the five-channel model. It has
@@ -246,9 +257,15 @@ will be referred to as the five-channel model. It has
 \label{eq:membrane_voltage_5}
 C\frac{dV}{dt} =I_{\leak}+I_{\na}+I_\k+I_\ca+I_\sk+I_{\mathrm{e}}
 \end{equation}
-In addition to the three-channel model described above in Eq~\ref{eq:membrane_voltage_3}, the five-channel model also has a calcium channel, with current $I_\ca$ and a calcium-gated potassium channel, with
-current $I_\sk$. These two additional currents are also described
-below.
+In addition to the three-channel model described above in
+Eq~\ref{eq:membrane_voltage_3}, the five-channel model also has a
+calcium channel, with current $I_\ca$ and a calcium-gated potassium
+channel, with current $I_\sk$. These two additional currents are also
+described below; they were selected because they are a prominent
+channel type in Purkinje cells and the calcium dynamics has timescales
+in the range required to produce the refractory period after a complex
+spike. Of course, the Purkinje cell has other channels that are not
+included in either model, these are described in the Discussion.
 
 In the Purkinje cell dendrites, climbing fibre activation evokes a
 sustained depolarising calcium transient
@@ -602,17 +619,25 @@ K\textsubscript{v}3.3 fast delayed rectifier potassium gate,
 \cite{VeysEtAl2013,ZaghaEtAl2008} used in the models described here:
 K\textsubscript{v}3.3 is necessary for the rapid repolarisation of the
 membrane following each spike or spikelet, as noted experimentally in
-\cite{ZaghaEtAl2008,VeysEtAl2013}. \cite{ZangEtAl2018} have recently generated a full scale compartmental model that describes the shape of the complex spike was simulated explicitly. This is an impressive model and very elegant work, but there is still a need for a simple model that is easy and fast to use.
+\cite{ZaghaEtAl2008,VeysEtAl2013}. \cite{ZangEtAl2018} have recently
+generated a full scale compartmental model that describes the shape of
+the complex spike was simulated explicitly. This is an impressive
+model and very elegant work, but there is still a need for a simple
+model that is easy and fast to use.
 
-In the models presented here an unusually large leak conductance of $2\msi$ was necessary to accurately represent the dynamics of complex spikes recorded
-\textit{in vitro}, namely the high spikelet firing frequency, the latencies between individual spikelets and the progressive increase in spikelet amplitude throughout the complex spike; thus, the model suggests that the passive resistance of the Purkinje cell somatic membrane is low. Evidence in
-support of this has been found experimentally, as a disparity between
-somatic and dendritic membrane resistance is present in Purkinje cells
+In the models presented here an unusually large leak conductance of
+$2\msi$ was necessary to accurately represent the dynamics of complex
+spikes recorded \textit{in vitro}, namely the high spikelet firing
+frequency, the latencies between individual spikelets and the
+progressive increase in spikelet amplitude throughout the complex
+spike; thus, the model suggests that the passive resistance of the
+Purkinje cell somatic membrane is low. Evidence in support of this has
+been found experimentally, as a disparity between somatic and
+dendritic membrane resistance is present in Purkinje cells
 \cite{RappEtAl1994}. This disparity is also a feature of the model in
 \cite{DeSchutterBower1994a,DeSchutterBower1994b,DeSchutterBower1994c}
 where somatic membrane resistance was $440\,\Omega\,\mathrm{cm}^2$,
-which is equivalent to a conductance of $\approx
-2.3\msi$, compared to
+which is equivalent to a conductance of $\approx 2.3\msi$, compared to
 $11\,\mathrm{k}\Omega\,\mathrm{cm}^2$ in the dendrites. Membrane
 resistance determines the membrane time constant which, in turn,
 determines the time scale over which the cell responds to input. With
@@ -620,19 +645,34 @@ low resistivity, the Purkinje cell soma will have a smaller membrane
 time constant than the dendrites, facilitating the generation of very
 fast spikelets \cite{WarnaarEtAl2015}.
 
-The shape of the complex spike waveforms, including complex spike duration, spikelet amplitudes and spikelet timing, generated in the two models is robust to
-changes in parameter values. Both fixed and free parameters can be
-changed without significantly altering these complex spike dynamics. The
-exception to this is the applied background current: as well as
-reducing simple spike activity, reducing the background current
-increases the amplitude of spikelets. 
+The shape of the complex spike waveforms, including complex spike
+duration, spikelet amplitudes and spikelet timing, generated in the
+two models is robust to changes in parameter values. Both fixed and
+free parameters can be changed without significantly altering these
+complex spike dynamics. The exception to this is the applied
+background current: as well as reducing simple spike activity,
+reducing the background current increases the amplitude of spikelets.
 
-Calcium-activated potassium channels are included in the five-channel model because they contribute to interactions between complex spikes and simple spike activity and regulate Purkinje cell output \cite{TankEtAl1988, McKayEtAl2007}. SK channels play an important role in limiting the firing rate of Purkinje cell simple spike activity \cite{WomackEtAl2003} \cite{EgorovaEtAl2014}, which is often correlated with complex spike activity. In the absence of complex spiking, simple spike firing frequencies increase to exceptionally high levels \cite{CerminaraRawson2004}. SK channels are also responsible for afterhyperpolarisations that follow bursts of action potentials \cite{HosyEtAl2011}, which may underlie the climbing fibre-induced pause and downregulation of simple spikes \cite{Xian-HuaEtAl2017}. The model of the calcium-activated potassium current used here and taken from \cite{GilliesWillshaw2006} is one of a number of models for the SK channel, for example, the alternative model used in
-\cite{GriffithEtAl2016} based on \cite{ChayKeizer1983,XiaEtAl1998} has
-a steeper and quicker modulation of the channel by calcium
-concentration. Furthermore, the model from \cite{GilliesWillshaw2006}
-simplifies the original dynamics described in
-\cite{HirschbergEtAl1998} and a future elaboration of the Purkinje
+Calcium-activated potassium channels are included in the five-channel
+model because they contribute to interactions between complex spikes
+and simple spike activity and regulate Purkinje cell output
+\cite{TankEtAl1988, McKayEtAl2007}. SK channels play an important role
+in limiting the firing rate of Purkinje cell simple spike activity
+\cite{WomackEtAl2003} \cite{EgorovaEtAl2014}, which is often
+correlated with complex spike activity. In the absence of complex
+spiking, simple spike firing frequencies increase to exceptionally
+high levels \cite{CerminaraRawson2004}. SK channels are also
+responsible for afterhyperpolarisations that follow bursts of action
+potentials \cite{HosyEtAl2011}, which may underlie the climbing
+fibre-induced pause and downregulation of simple spikes
+\cite{Xian-HuaEtAl2017}. The model of the calcium-activated potassium
+current used here and taken from \cite{GilliesWillshaw2006} is one of
+a number of models for the SK channel, for example, the alternative
+model used in \cite{GriffithEtAl2016} based on
+\cite{ChayKeizer1983,XiaEtAl1998} has a steeper and quicker modulation
+of the channel by calcium concentration. Furthermore, the model from
+\cite{GilliesWillshaw2006} simplifies the original dynamics described
+in \cite{HirschbergEtAl1998} and a future elaboration of the Purkinje
 cell model presented here might consider how the richer temporal
 dynamics in \cite{HirschbergEtAl1998}, with different calcium
 concentration decay rates, might affect the behaviour of the model.
@@ -673,20 +713,21 @@ observed \textsl{in vivo}
 
 The simplified Purkinje cell models presented here do not include some
 of the channels known to be expressed in the Purkinje cell
-membrane. These include the HCN1 channel, which may be
-responsible for bimodal patterns of activity
-\cite{LoewensteinEtAl2005}, the calcium-activated intermediate
-conductance (IK) and big conducance (BK) potassium channels, which
-contribute to the regulation of Purkinje cell excitability and
-rhythmicity \cite{CheronEtAl2009}, the persistent sodium channel,
-which is involved in nonlinear synaptic gain, plateau potentials and
-subthreshold oscillations \cite{KayEtAl1998}, the
-K\textsubscript{v}1.1 channel, which prevents hyperexcitability
-\cite{ZhangEtAl1999}, the T-type calcium channels, which play a role in
-rhythmicity and bursting behaviour, for review see
-\cite{CainSnutch2010}, and the inwardly rectifying potassium channels,
-which are activated by GABA\textsubscript{B} receptors
-\cite{TabataEtAl2005}. These currents are likely to play a role in modulating Purkinje cell activity described in the two models presented above.
+membrane. These include the HCN1 channel, which may be responsible for
+bimodal patterns of activity \cite{LoewensteinEtAl2005}, the
+calcium-activated intermediate conductance (IK) and big conducance
+(BK) potassium channels, which contribute to the regulation of
+Purkinje cell excitability and rhythmicity \cite{CheronEtAl2009}, the
+persistent sodium channel, which is involved in nonlinear synaptic
+gain, plateau potentials and subthreshold oscillations
+\cite{KayEtAl1998}, the K\textsubscript{v}1.1 channel, which prevents
+hyperexcitability \cite{ZhangEtAl1999}, the T-type calcium channels,
+which play a role in rhythmicity and bursting behaviour, for review
+see \cite{CainSnutch2010}, and the inwardly rectifying potassium
+channels, which are activated by GABA\textsubscript{B} receptors
+\cite{TabataEtAl2005}. These currents are likely to play a role in
+modulating Purkinje cell activity described in the two models
+presented above.
 
 The models presented here are capable of simulating the precise temporal and morphological features of the complex spike waveform recorded \textit{in vitro} with incredible accuracy.
 
