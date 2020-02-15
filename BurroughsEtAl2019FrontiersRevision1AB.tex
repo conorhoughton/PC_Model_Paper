@@ -481,12 +481,13 @@ Fig~\ref{currents}.  The interplay between the resurgent sodium and
 fast potassium currents is critical in generating the spikelets in the
 complex spike. Spikelet formation is absent following the removal of
 the K\textsubscript{v}3.3 current, in line with experimental
-investigation \cite{ZaghaEtAl2010}, but there is still a depolarisation plateau following
-the injection of climbing fibre current. In the absence of the
-sodium current, spikelets are abolished, as are simple
-spikes, and the resurgent sodium current is apparent after the initial
-spike of the complex spike, but spikelet generation fails. The combination of active sodium and potassium currents is
-therefore necessary for modelling complex spikes.
+investigation \cite{ZaghaEtAl2010}, but there is still a
+depolarisation plateau following the injection of climbing fibre
+current. In the absence of the sodium current, spikelets are
+abolished, as are simple spikes, and the resurgent sodium current is
+apparent after the initial spike of the complex spike, but spikelet
+generation fails. The combination of active sodium and potassium
+currents is therefore necessary for modelling complex spikes.
 
 %\begin{figure}[!ht]
 %%\includegraphics[width=\linewidth]{JNeuroFigures/figure_2_currents_three_channel_model_monochrome.jpg}
@@ -571,10 +572,17 @@ of spontaneous Purkinje cell simple spike activity recorded \textit{in
   vivo}.  The ongoing simple spike activity was interrupted by
 simulated complex spikes generated in response to injections of
 climbing-fibre-like current. Following individual complex spikes there
-was a transient cessation in the simple spike train that resembles Purkinje cell
-behaviour observed \textit{in vitro} and \textit{in vivo}. This pause
-lasted for $\sim 40\mse$ before returning to baseline levels of simple
-spike activity. This pause was greater than expected if complex spikes and simple spikes are independent (simple spike interespike interval divided by two, see \cite{XiaoEtAl2014}), unlike in the three-channel model. Simulated complex spikes in the five-channel model, in response to increasing time constants describing the decay of the injected climbing fibre input, behave similarly to those simulated in the three-channel model, Fig.~\ref{S2_Fig}. 
+was a transient cessation in the simple spike train that resembles
+Purkinje cell behaviour observed \textit{in vitro} and \textit{in
+  vivo}. This pause lasted for $\sim 40\mse$ before returning to
+baseline levels of simple spike activity. This pause was greater than
+expected if complex spikes and simple spikes are independent (simple
+spike interespike interval divided by two, see \cite{XiaoEtAl2014}),
+unlike in the three-channel model. Simulated complex spikes in the
+five-channel model, in response to increasing time constants
+describing the decay of the injected climbing fibre input, behave
+similarly to those simulated in the three-channel model,
+Fig.~\ref{S2_Fig}.
 
 
 %\begin{figure}[!ht]
@@ -590,16 +598,17 @@ spike activity. This pause was greater than expected if complex spikes and simpl
 %\label{S2_Fig}
 %\end{figure}
 
-Changes in the activity of the SK channel was found to influence Purkinje cell simple spike rate. Increases in the maximum conductance through either the calcium-activated potassium
-channel or the calcium channel prolonged the duration of the
-post-complex spike pause in simple spike activity and reduced baseline
-simple spike rates, whereas decreases in maximal conductance reduced
-the duration of the pause and increased simple spike firing frequency,
-see Fig.~\ref{S1_Fig}. Increasing $\bar{g}_\sk$ in the model caused a
+Changes in the activity of the SK channel was found to influence
+Purkinje cell simple spike rate. Increases in the maximum conductance
+through either the calcium-activated potassium channel or the calcium
+channel prolonged the duration of the post-complex spike pause in
+simple spike activity and reduced baseline simple spike rates, whereas
+decreases in maximal conductance reduced the duration of the pause and
+increased simple spike firing frequency, see
+Fig.~\ref{S1_Fig}. Increasing $\bar{g}_\sk$ in the model caused a
 slight increase in simple spike rate above baseline levels after the
 pause. This is reminiscent of simple spike modulation observed in
 Purkinje cells \textsl{in vivo} \cite{BurroughsEtAl2016}.
-
 
 %\begin{figure}[!ht]
 %\caption{\textbf{The model is robust to changes in parameter values.}
@@ -630,17 +639,24 @@ interactions between complex spike activity and background simple
 spike behaviour are also observed in simulations.
 
 In the models presented here, the dynamics of the resurgent sodium
-channel has a crucial role in producing the complex spike waveform, which is in line with experiments \cite{RamanBean1997}. After the initial spike of the complex spike, channels become sequestered in the open-but-blocked state so that the following spikelets
-are stunted relative to the initial spike and blocked channels
-returning to the open state help sustain the depolarization for subsequent spikelet generation.
+channel has a crucial role in producing the complex spike waveform,
+which is in line with experiments \cite{RamanBean1997}. After the
+initial spike of the complex spike, channels become sequestered in the
+open-but-blocked state so that the following spikelets are stunted
+relative to the initial spike and blocked channels returning to the
+open state help sustain the depolarization for subsequent spikelet
+generation.
 
 In fact, somatic complex spikes are often thought to be generated by
 an interplay between the resurgent sodium current
 \cite{RamanBean1997,RamanBean2001,KhaliqEtAl2003,KhaliqRaman2006} and
 the current through the fast potassium channel K\textsubscript{v}3.3
 \cite{ZaghaEtAl2008,HurlockEtAl2008,VeysEtAl2013}; this is the
-point-of-view developed in the two models presented in this paper. In
-Purkinje cells, resurgent sodium current is conducted through
+point-of-view developed in the two models presented in this paper and
+these models are intended as a demonstration that this is a plausible
+description of complex spike generation.
+
+In Purkinje cells, resurgent sodium current is conducted through
 Na\textsubscript{v}1.6 channels \cite{RamanBean1997} and is estimated
 to contribute 40\% of total sodium current generated during a simple
 spike \cite{RamanBean2001}, although others suggest this figure is
@@ -652,8 +668,7 @@ that is non-conducting, see Table~\ref{fig:MarkovRNa}. Phosphorylation
 of the cytosolic $\beta_4$ subunit terminal may be responsible for
 this form of open channel block \cite{GriecoEtAl2002}. Upon
 repolarisation, channels in the open-but-blocked configuration return
-through the open configuration to either a closed or inactive
-state.
+through the open configuration to either a closed or inactive state.
 
 In Purkinje cells, the K\textsubscript{v}3.3 potassium channel is
 responsible for rapid repolarisation \cite{VeysEtAl2013} because of
@@ -682,9 +697,7 @@ K\textsubscript{v}3.3 is necessary for the rapid repolarisation of the
 membrane following each spike or spikelet, as noted experimentally in
 \cite{ZaghaEtAl2008,VeysEtAl2013}. \cite{ZangEtAl2018} have recently
 generated a full scale compartmental model that describes the shape of
-the complex spike was simulated explicitly. This is an impressive
-model and very elegant work, but there is still a need for a simple
-model that is easy and fast to use.
+the complex spike was simulated explicitly.
 
 In the models presented here an unusually large leak conductance of
 $2\msi$ was necessary to accurately represent the dynamics of complex
@@ -747,11 +760,11 @@ of the soma. The calcium concentration within this narrow submembrane
 region was modelled in the present study. Intracellular calcium
 dynamics, in particular the time course of calcium concentration
 decay, was found to modulate simulated Purkinje cell simple spike
-activity. However, it should be
-noted that the five-channel model includes parameters, such as the
-submembrane shell thickness and decay in calcium concentration, that
-are not well-specified experimentally and in any case likely depend on
-somatic morphology, something that is variable across Purkinje cells.
+activity. However, it should be noted that the five-channel model
+includes parameters, such as the submembrane shell thickness and decay
+in calcium concentration, that are not well-specified experimentally
+and in any case likely depend on somatic morphology, something that is
+variable across Purkinje cells.
 
 Although the three-channel and five-channel models differ in how the
 complex spike affects simple spiking, there is almost no difference in
@@ -790,12 +803,38 @@ channels, which are activated by GABA\textsubscript{B} receptors
 modulating Purkinje cell activity described in the two models
 presented above.
 
-The models presented here are capable of simulating the precise temporal and morphological features of the complex spike waveform recorded \textit{in vitro} with incredible accuracy.
+%The models presented here are capable of simulating the precise
+%temporal and morphological features of the complex spike waveform
+%recorded \textit{in vitro} with incredible accuracy.
 
 % Add in the fact that our model captures the dynamics of PCs recorded from numerous experimental studies, both in vivo and in vitro.
 
 
-The models presented in this study are optimised to a complex spike recorded in vitro \cite{DavieEtAl2008}, but typify features of the complex spike waveform observed in numerous studies, both \textsl{in vitro} [new citations] and \textsl{in vivo} [new citations] in a number of different species [new citations]. Complex spikes elicited by different Purkinje cells are broadly stereotypical in a number of ways: 1) the first spike is similar in shape to the simple spike, 2) the first spikelet tends to be lower in amplitude than all other spikelets, 3) spikelets get progressively larger as the complex spike happens, 4) spikelets get further apart with increasing current injections and/or spikelet number. Furthermore, even the three channel model is capable of simulating the evoked complex spike responses of different Purkinje cells recorded in \cite{MonsivaisEtAl2005}. In figure 6B, the waveform of the complex spike generated in the Purkinje cell soma is remarkably similar to the behaviour of the five channel model presented here in Fig.~\ref{4}D. Our model therefore predicts that the Purkinje cell recorded \cite{MonsivaisEtAl2005} and detailed in FIgure 6B has a considerably longer membrane time constant, likely due to greater membrane resistance, than the other Purkinje cell the recorded and illustrated in Figure 6A. Amazingly the simple models presented here are not only capable of simulating different complex spike behaviour  observed in different Purkinje cells, but can also explain a reason for the observed variations in waveform. These models are therefore a useful tool to probe Purkinje cell complex spike behaviour.
+The models presented in this study are tuned to match a complex spike
+recorded in vitro \cite{DavieEtAl2008} chosen as a target because it
+typifies features of the complex spike waveform observed in numerous
+studies, both \textsl{in vitro} [new citations] and \textsl{in vivo}
+[new citations] in a number of different species [new
+  citations]. Complex spikes elicited by different Purkinje cells are
+broadly stereotypical in a number of ways: 1) the first spike is
+similar in shape to the simple spike, 2) the first spikelet tends to
+be lower in amplitude than all other spikelets, 3) spikelets get
+progressively larger as the complex spike happens, 4) spikelets get
+further apart with increasing current injections and/or spikelet
+number. Furthermore, even the three channel model is capable of
+simulating the evoked complex spike responses of different Purkinje
+cells recorded in \cite{MonsivaisEtAl2005}. In figure 6B, the waveform
+of the complex spike generated in the Purkinje cell soma is remarkably
+similar to the behaviour of the five channel model presented here in
+Fig.~\ref{4}D. Our model therefore predicts that the Purkinje cell
+recorded \cite{MonsivaisEtAl2005} and detailed in FIgure 6B has a
+considerably longer membrane time constant, likely due to greater
+membrane resistance, than the other Purkinje cell the recorded and
+illustrated in Figure 6A. Amazingly the simple models presented here
+are not only capable of simulating different complex spike behaviour
+observed in different Purkinje cells, but can also explain a reason
+for the observed variations in waveform. These models are therefore a
+useful tool to probe Purkinje cell complex spike behaviour.
 
 Obviously, restricting the model to a single somatic compartment is a substantial simplification. Along with removing any affect of the complex somatic morphology, it fails to model the coupling between the soma and dendrite. This is significant because the extensive dendritic arborisations that characterise Purkinje cells means that there are space clamp limitations associated with recording from Purkinje cells. Removing the coupling to the dendrite is an approximation and rules out the possibility, in our models, that current flow from the soma to the dendrite might have a role in the production of complex spikes. However, as discussed above, the complex spike has been shown to be generated only within the proximal axon, the structure of the dendritic EPS is lost during transmission to the soma and there is a large discrepancy between the membrane resistance in the soma with current from the soma to the dendrite likely to be small. As such, since one compartment models are considerably more transparent, this suggests a one-compartment model is useful at this level of approximation.
 
