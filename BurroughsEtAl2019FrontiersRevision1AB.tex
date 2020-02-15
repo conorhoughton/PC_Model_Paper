@@ -293,8 +293,14 @@ where $t_0$ is the time the double exponential function reaches its maximum:
 \begin{equation}
 t_0 = \frac{\tau_+\tau_-} {\tau_--\tau_+}\log{\frac{\tau_-}{\tau_+}}.
 \end{equation}
-$I_0=62\,\mu\mathrm{A}\cm^{-2}$ and $I_0=67\,\mu\mathrm{A}\cm^{-2}$ are background currents in the three-channel model and five-channel model respectively,
-$I_{\mathrm{cf}}=52\,\mu\mathrm{A}\cm^{-2}$ and $I_{\mathrm{cf}}=71\,\mu\mathrm{A}\cm^{-2}$ are the maximum amplitudes of the climbing fibre current in the three-channel model and the five-channel model respectively, $\tau_+=0.3\mse$ and $\tau_-=4\mse$ are the rise and decay timescales respectively and are the same for both the three-channel and five-channel model.
+$I_0=62\,\mu\mathrm{A}\cm^{-2}$ and $I_0=67\,\mu\mathrm{A}\cm^{-2}$
+are background currents in the three-channel model and five-channel
+model respectively, $I_{\mathrm{cf}}=52\,\mu\mathrm{A}\cm^{-2}$ and
+$I_{\mathrm{cf}}=71\,\mu\mathrm{A}\cm^{-2}$ are the maximum amplitudes
+of the climbing fibre current in the three-channel model and the
+five-channel model respectively, $\tau_+=0.3\mse$ and $\tau_-=4\mse$
+are the rise and decay timescales respectively and are the same for
+both the three-channel and five-channel model.
 
 The current through the sodium channel was modelled using a Markovian scheme developed by \cite{RamanBean2001}, see
 Table~\ref{fig:MarkovRNa}. This scheme models the dynamics of both the transient and resurgent gates. The current is
@@ -321,9 +327,12 @@ where $\bar{g}_{\k}= 15\msi$ and $E_{\k}=-88\mv$. Channel kinetics are described
 \exp{\left(-\frac{V-30\mv}{26.5\mv}\right)}\mathrm{ms}^{-1}
 \end{align}
 
-The five-channel model extends the three-channel model to include calcium. It adds a calcium
-channel, a model of calcium concentration dynamics in the soma and a calcium-gated potassium channel. The calcium channel is a P/Q type calcium channel with equations and parameter values the same as those in
-\cite{MiyashoEtAl2001}. The current is described by
+The five-channel model extends the three-channel model to include
+calcium. It adds a calcium channel, a model of calcium concentration
+dynamics in the soma and a calcium-gated potassium channel. The
+calcium channel is a P/Q type calcium channel with equations and
+parameter values the same as those in \cite{MiyashoEtAl2001}. The
+current is described by
 \begin{equation}
 \label{eq:I_Ca}
 I_\ca =\bar{g}_{\ca} q(E_\ca-V)
@@ -348,22 +357,22 @@ The intracellular calcium concentration dynamics are taken from
 Thus, calcium enters the soma as part of the $I_\mathrm{e}$ input
 current and through calcium channels; $c=0.02$ is a measure of what
 fraction of $I_{\mathrm{e}}$ is composed of calcium and $\gamma$ is a
-conversion factor which converts the current to
-a calcium concentration flux. As well as quantifying the charge of each
-ion, this factor needs to account for the distribution of calcium in
-the soma; unlike current which depends on membrane area, concentration
-depends on volume. However, in the soma the calcium is sequestered in a
-thin layer near the membrane. Hence,
-$\gamma=0.01/zF\delta r\,\mathrm{cm}^{-2}$ where $z=2$ is the electrical
-charge of the calcium ion, $\delta r=0.2\,\mu\mathrm{m}$ is the width of
-the somatic submembrane shell and $F$ is Faraday's constant. In the
-absence of calcium inflow the calcium concentration returns with rate
-constant $\rho=0.02\mathrm{ms}^{-1}$ to a baseline value $[\ca^{2+}]_0
+conversion factor which converts the current to a calcium
+concentration flux. As well as quantifying the charge of each ion,
+this factor needs to account for the distribution of calcium in the
+soma; unlike current which depends on membrane area, concentration
+depends on volume. However, in the soma the calcium is sequestered in
+a thin layer near the membrane. Hence, $\gamma=0.01/zF\delta
+r\,\mathrm{cm}^{-2}$ where $z=2$ is the electrical charge of the
+calcium ion, $\delta r=0.2\,\mu\mathrm{m}$ is the width of the somatic
+submembrane shell and $F$ is Faraday's constant. In the absence of
+calcium inflow the calcium concentration returns with rate constant
+$\rho=0.02\mathrm{ms}^{-1}$ to a baseline value $[\ca^{2+}]_0
 =30\,\mathrm{nM}\cm^{-3}$ through intracellular buffering
 \cite{FierroEtAl1998,AiraksinenEtAl1997}; this value has been chosen
-so that the timecourse matched the description in \cite{EilersEtAl1995} of
-calcium concentration dynamics in the subsomatic cell of Purkinje
-cells.
+so that the timecourse matched the description in
+\cite{EilersEtAl1995} of calcium concentration dynamics in the
+subsomatic cell of Purkinje cells.
 
 The calcium activated potassium channel is an SK, small conductance,
 channel, \cite{LancasterEtAl1991}. The channel dynamics are taken from
@@ -380,34 +389,80 @@ w_{\infty}   &= \frac{0.81}{1 + \exp{(-(\log{\{[\ca^{2+}]/(1\,\mathrm{nM})\}}+0.
 \tau_w &= 40 \mse
 \end{align}
 
-Parameter values are given in Table~\ref{table1}. Most parameter values used in this modelling study were taken from
-experimental work. However, some parameters that are not easily
-measured experimentally are optimised so that the complex spike
-waveform shape had the best fit to complex spikes recorded
-experimentally \textit{in vitro}, see Fig 1D in \cite{DavieEtAl2008}.
+Parameter values are given in Table~\ref{table1}. Most parameter
+values used in this modelling study were taken from experimental
+work. However, some parameters that are not easily measured
+experimentally are optimised here so that the complex spike waveform
+shape had the best fit to complex spikes recorded experimentally
+\textit{in vitro}, see Fig 1D in \cite{DavieEtAl2008}.
 
-%AB 20/08/19 add in details of dt, CPU and simulation time
-Simulations were run in Python 2.7, OS on a CPU. Models were simulated as ordinary differential equations and integration was performed explicitly using the \texttt{scipy.integrate.ode} package using the \texttt{BDF} option suitable for stiff problems, this implements a backward differentiation formula with a Jacobian estimated by finite differences \cite{ByrneHindmarsh1975}. The timestep, $dt$, was chosen as 0.0025 ms. One second of Purkinje cell activity can be simulated in 1 minute 20 seconds. 
+Simulations were run in Python 2.7, OS on a CPU. Models were simulated
+as ordinary differential equations and integration was performed
+explicitly using the \texttt{scipy.integrate.ode} package using the
+\texttt{BDF} option suitable for stiff problems, this implements a
+backward differentiation formula with a Jacobian estimated by finite
+differences \cite{ByrneHindmarsh1975}. The timestep, $dt$, was chosen
+as 0.0025 ms. One second of Purkinje cell activity can be simulated in
+1 minute 20 seconds.
 
-Optimization was performed using a mixture of error minimization and hand-tuning techniques. The model was optimized to simulate features of a typical complex spike recorded \textit{in vitro} in \cite{DavieEtAl2008} and illustrated here, with permission, in Fig~\ref{injection_amplitudes}Aiv. This complex spike was chosen because complex spikes with three spikelets are most common \cite{BurroughsEtAl2016}. Although this is a specific experimental result; it exhibits those general features of complex spikes we wanted to simulate in our model and so it serves as a useful target for parameter fitting. Specifically, the model was fitted to specific features of the complex spike waveform that included the timing of individual spikelets within the complex spike, the order of spikelet amplitudes within the complex spike and overall complex spike duration. The error used was the squared distance between the simulated Purkinje cell voltage trace in response to climbing fibre input and the typical complex spike recorded \textit{in vitro}, Fig~\ref{injection_amplitudes}Aiv. Error minimization used the downhill simplex algorithm in the \texttt{scipy.optimize.minimize} package. The square-error can be unstable for spike-like profiles, given that minor changes in the timing of individual spikelet peaks can generate huge changes in the square error even if other spike features are well described. This could be addressed through a time rescaling; here, though, the error minimization was combined with hand-tuning. We hand-tuned by running simulations thousands of times with different combinations of physiologically plausible parameter values to create large grids of simulated complex spike images and then selecting the best by eye. Current injections necessary for simulating complex spikes were comparable to those necessary to reproduce the same complex spike \textit{in vitro}. In the model, injections of climbing-fibre-like somatic currents varied from 8 $\mu$A$/$cm$^2$ through to 215 $\mu$A$/$cm$^2$ Fig~\ref{injection_amplitudes}. Assuming a surface area of 500 $\mu$m$^2$ this would correlate to current injections between 0.4 nA and 10.75 nA.
+Optimization was performed using a mixture of error minimization and
+hand-tuning techniques. In order to have a definite
+target in tuning parameters the model was optimized to simulate
+features of a typical complex spike recorded \textit{in vitro} in
+\cite{DavieEtAl2008} and illustrated here, with permission, in
+Fig~\ref{injection_amplitudes}Aiv. This complex spike was chosen
+because complex spikes with three spikelets are most common
+\cite{BurroughsEtAl2016}. Although this is a specific experimental
+result; it exhibits those general features of complex spikes we wanted
+to simulate in our model and so it serves as a useful target for
+parameter fitting. Specifically, the model was fitted to specific
+features of the complex spike waveform that included the timing of
+individual spikelets within the complex spike, the order of spikelet
+amplitudes within the complex spike and overall complex spike
+duration.
+
+The error used was the squared distance between the simulated Purkinje
+cell voltage trace in response to climbing fibre input and the typical
+complex spike recorded \textit{in vitro},
+Fig~\ref{injection_amplitudes}Aiv. Error minimization used the
+downhill simplex algorithm in the \texttt{scipy.optimize.minimize}
+package. The square-error can be unstable for spike-like profiles,
+given that minor changes in the timing of individual spikelet peaks
+can generate huge changes in the square error even if other spike
+features are well described. This could be addressed through a time
+rescaling; here, though, the error minimization was combined with
+hand-tuning. We hand-tuned by running simulations thousands of times
+with different combinations of physiologically plausible parameter
+values to create large grids of simulated complex spike images and
+then selecting the best by eye. Current injections necessary for
+simulating complex spikes were comparable to those necessary to
+reproduce the same complex spike \textit{in vitro}. In the model,
+injections of climbing-fibre-like somatic currents varied from 8
+$\mu$A$/$cm$^2$ through to 215 $\mu$A$/$cm$^2$
+Fig~\ref{injection_amplitudes}. Assuming a surface area of 500
+$\mu$m$^2$ this would correlate to current injections between 0.4 nA
+and 10.75 nA.
 
 
 
 \section{Results}
 
-The three-channel model includes a leak channel, a sodium channel,
-including both transient and resurgent sodium gates, and a fast
-potassium channel. The main features of the complex spike shape
-observed \textsl{in vitro} and described in \cite{DavieEtAl2008}, are found
-in this three-channel model, Fig~\ref{injection_amplitudes}. With increasing
-injections of climbing-fibre-induced somatic current, the number of spikelets in the simulated
-complex spike increased from one to three. Each additional spikelet
-had successively greater amplitudes than the spikelet before it. For
-complex spikes with only two spikelets the latency from the first to
-the second spikelet shortens with increasing current. As the current
-is increased the number of spikelets increases to three. Further
-increases cause the amplitude of the spikelets to decrease, before the
-spikelets are lost altogether and replaced by a depolarisation plateau. The model was robust to injections of greater parallel fibre current and the subsequent increases in the rate of simple spike firing.
+The three-channel model includes a leak channel, a sodium channel with
+both transient and resurgent sodium gates, and a fast potassium
+channel. The main features of the complex spike shape observed
+\textsl{in vitro} and described in \cite{DavieEtAl2008}, are found in
+this three-channel model, Fig~\ref{injection_amplitudes}. With
+increasing injections of climbing-fibre-induced somatic current, the
+number of spikelets in the simulated complex spike increased from one
+to three. Each additional spikelet had successively greater amplitudes
+than the spikelet before it. For complex spikes with only two
+spikelets the latency from the first to the second spikelet shortens
+with increasing current. As the current is increased the number of
+spikelets increases to three. Further increases cause the amplitude of
+the spikelets to decrease, before the spikelets are lost altogether
+and replaced by a depolarisation plateau. The model was robust to
+injections of greater parallel fibre current and the subsequent
+increases in the rate of simple spike firing.
 
 
 %\begin{figure}[!ht]
@@ -447,11 +502,17 @@ therefore necessary for modelling complex spikes.
 %\label{currents}
 %\end{figure}
 
-It is possible to increase the
-number of spikelets generated in the complex spike waveform to more
-than three by increasing the decay time constant $\tau_-$ in the
-injected current $I_{\mathrm{e}}$, Fig~\ref{fig:injection_durations}. This is in line with experimental studies, which have shown that an increase in the number of bursts in the pre-synaptic olivary action potential generates an increase in dendritic calcium spikes, which is in turn linearly related to the number of spikelets in, and duration of, somatic complex spikes \cite{MathyEtAl2009}. This is presumably due to an increase in the duration of the climbing-fibre-induced somatic depolarisation.
-The injected current, modelling the climbing-fibre-like input to the soma
+It is possible to increase the number of spikelets generated in the
+complex spike waveform to more than three by increasing the decay time
+constant $\tau_-$ in the injected current $I_{\mathrm{e}}$,
+Fig~\ref{fig:injection_durations}. This is in line with experimental
+studies, which have shown that an increase in the number of bursts in
+the pre-synaptic olivary action potential generates an increase in
+dendritic calcium spikes, which is in turn linearly related to the
+number of spikelets in, and duration of, somatic complex spikes
+\cite{MathyEtAl2009}. This is presumably due to an increase in the
+duration of the climbing-fibre-induced somatic depolarisation.  The
+injected current, modelling the climbing-fibre-like input to the soma
 \textsl{in vitro} in \cite{DavieEtAl2008}, has a
 difference-of-exponentials form with a rise time $\tau_+=0.3\mse$ and
 decay time $\tau_-=4\mse$. When the decay time $\tau_-$ is increased
