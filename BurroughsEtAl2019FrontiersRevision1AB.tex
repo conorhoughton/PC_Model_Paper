@@ -192,7 +192,7 @@ complex spike waveform and the duration of complex spikes differs
 between spontaneous and sensory-evoked events
 \cite{MarutaEtAl2007,NajafiMedina2013}. Complex spike duration also
 appears to affect plasticity: the magnitude of motor learning and synaptic plasticity in awake
-monkeys correlates with complex spike durations \cite{YangLispberger2014}.
+monkeys correlates with complex spike duration \cite{YangLispberger2014}.
 
 There is also emerging evidence for an interaction between complex
 spike waveform changes, simple spike activity and behaviour
@@ -810,35 +810,28 @@ presented above.
 % Add in the fact that our model captures the dynamics of PCs recorded from numerous experimental studies, both in vivo and in vitro.
 
 
-The models presented in this study are tuned to match a complex spike
-recorded in vitro \cite{DavieEtAl2008} chosen as a target because it
-typifies features of the complex spike waveform observed in numerous
-studies, both \textsl{in vitro} [new citations] and \textsl{in vivo}
-[new citations] in a number of different species [new
-  citations]. Complex spikes elicited by different Purkinje cells are
-broadly stereotypical in a number of ways: 1) the first spike is
-similar in shape to the simple spike, 2) the first spikelet tends to
-be lower in amplitude than all other spikelets, 3) spikelets get
-progressively larger as the complex spike happens, 4) spikelets get
-further apart with increasing current injections and/or spikelet
+The Purkinje cell models presented in this study are tuned to match a complex spike
+recorded in vitro \cite{DavieEtAl2008}. The Purkinje cell recorded by \cite{DavieEtAl2008} was chosen to guide parameter optimisation for two reasons: 1) the complex spike waveform was recorded in response to increasing injections of climbing fibre like currents. This describes the complex spike waveform response to different somatic inputs and aids model fitting. 2) the complex spike response of this Purkinje cell typifies features of the complex spike waveform that are consistently observed across numerous \textsl{in vitro} studies \cite{ZaghaEtAl2008, zhang2017ethanol, MonsivaisEtAl2005, khaliq2005axonal} and to some extent \textsl{in vivo} \cite{WarnaarEtAl2015}. Complex spikes elicited by different Purkinje cells are
+broadly stereotypical in a number of ways: 1) the initial spike is
+similar in shape to the simple spike, 2) the first spikelet is slower than the initialy spike and lower in amplitude than all other spikelets, 3) spikelets get
+progressively larger as the complex spike occurs, and 4) spikelets get
+further apart in time with increasing current injections and/or spikelet
 number.
 
-Furthermore, even the three channel model is capable of
-simulating the evoked complex spike responses of different Purkinje
-cells recorded in \cite{MonsivaisEtAl2005}. In figure 6B, the waveform
-of the complex spike generated in the Purkinje cell soma is remarkably
+However, complex spikes do exhibit large amounts of variablity \cite{BurroughsEtAl2016, WarnaarEtAl2015}. Interestingly both the three and five channel models presented in the current study can be used to describe these variations. Our models are therefore useful in understanding the differences observed in complex spike waveforms both within the same cell and across different Purkinje cells. For example, both the three and five channel models capture features of complex spikes recorded from different Purkinje
+cells in \cite{MonsivaisEtAl2005} despite not being tuned to these cells. In Figure 6 of \cite{MonsivaisEtAl2005}, the waveform
+of experimentally recorded somatic complex spikes in A and B are remarkably
 similar to the behaviour of the five channel model presented here in
-Fig.~\ref{4}D. Our model therefore predicts that the Purkinje cell
-recorded \cite{MonsivaisEtAl2005} and detailed in FIgure 6B has a
-considerably longer membrane time constant, likely due to greater
-membrane resistance, than the other Purkinje cell the recorded and
-illustrated in Figure 6A. Amazingly the simple models presented here
-are not only capable of simulating different complex spike behaviour
-observed in different Purkinje cells, but can also explain a reason
+Fig.~\ref{S2_Fig} B and D respectively. Our model would therefore predict that the Purkinje cell
+recorded by \cite{MonsivaisEtAl2005} and illustrated in Figure 6B has a
+considerably longer membrane time constant than the Purkinje cell illustrated in Figure 6A. This is most likely due to variations in
+membrane resistance between the two cells. Amazingly the simple models presented here
+are therefore capable of simulating different complex spike behaviours
+observed in different Purkinje cells,. Furthermore, they can also explain the reason
 for the observed variations in waveform. These models are therefore a
 useful tool to probe Purkinje cell complex spike behaviour.
 
-Obviously, restricting the model to a single somatic compartment is a substantial simplification. Along with removing any affect of the complex somatic morphology, it fails to model the coupling between the soma and dendrite. This is significant because the extensive dendritic arborisations that characterise Purkinje cells means that there are space clamp limitations associated with recording from Purkinje cells. Removing the coupling to the dendrite is an approximation and rules out the possibility, in our models, that current flow from the soma to the dendrite might have a role in the production of complex spikes. However, as discussed above, the complex spike has been shown to be generated only within the proximal axon, the structure of the dendritic EPS is lost during transmission to the soma and there is a large discrepancy between the membrane resistance in the soma with current from the soma to the dendrite likely to be small. As such, since one compartment models are considerably more transparent, this suggests a one-compartment model is useful at this level of approximation.
+Obviously, restricting the model to a single somatic compartment is a substantial simplification. Along with removing any affect of the complex somatic morphology, it fails to model the coupling between the soma and the dendrites. This is significant because the extensive dendritic arborisations that characterise Purkinje cells means that there are space clamp limitations associated with recording from Purkinje cells. Removing the coupling to the dendrite is an approximation and rules out the possibility, in our models, that current flow from the soma to the dendrite might have a role in the production of complex spikes. However, as discussed above, the complex spike has been shown to be generated only within the proximal axon, the structure of the dendritic excitatory post-synaptic potential (EPSP) is lost during transmission to the soma and there is a large discrepancy between the membrane resistance in the soma and thus current flow from the soma to the dendrite is likely to be small. As such, since one compartment models are considerably more transparent, this suggests a one-compartment model is useful at this level of approximation.
 
 These models clarify the relationship between channel dynamics and Purkinje cell spike generation. Furthermore the five-channel model is capable of capturing some of the interactions that occur between complex spikes and the simple spike activity, namely the pause in simple spike activity after each complex spike event. Experimentally, a positive correlation has been observed between simple spike rate and the number of spikelets making up a subsequent
 complex spike waveform \textit{in vivo} \cite{BurroughsEtAl2016}. The model was unable to capture the more complicated interactions between complex spike waveform changes and simple spike dynamics, suggesting that these may result from mechanisms located outside of the soma, such as dendritic computations, synaptic plasticity or network effects. In the future these models will be useful as a component in a larger model of local cerebellar circuitry.
