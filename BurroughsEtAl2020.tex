@@ -179,7 +179,7 @@ fibre - granule cell - parallel fibre pathway modulates the already intrinsic
 simple spike activity of Purkinje cells, which averages at $\sim
 40\hz$ for spontaneous activity in rats \cite{armstrong1979activity}, cats \cite{thach1967somatosensory} and monkeys \cite{fu1997relationship} but can range from $0-200\hz$ \cite{chen2016cerebellum}. In marked contrast, complex spikes are generated at only $\sim 1\hz$ \cite{lang1999patterns} in response to activity
 within the direct climbing fibre pathway and are characterised by a prolonged, multi-peaked action potential \cite{CampbellHesslow1986}. The initial spike in a complex spike has a larger amplitude to the subsequent peaks, these smaller peaks are known as spikelets, which are elicited
-at $\sim 600\hz$ \cite{WarnaarEtAl2015,BurroughsEtAl2016}. 
+at $\sim 600\hz$ \cite{WarnaarEtAl2015,BurroughsEtAl2016}. The complex spike is followed by an extended refractory period \cite{VoogdGlickstein1998,EcclesLlinasSasaki1966,Fujita1968}.
 
 
 %Given the extent of Purkinje cell dendritic arborisations it is clear that afferent inputs play a key role in shaping %Purkinje cell dynamics. There is therefore a need to have a simple model that describes Purkinje cell firing patterns so that %network studies can be performed to better understand the mechanisms of cerebellar operation.
@@ -192,7 +192,7 @@ complex spike waveform and the duration of complex spikes differs
 between spontaneous and sensory-evoked events
 \cite{MarutaEtAl2007,NajafiMedina2013}. Complex spike duration also
 appears to affect plasticity: the magnitude of motor learning and synaptic plasticity in awake
-monkeys correlates with complex spike duration \cite{YangLispberger2014}.
+monkeys correlates with complex spike duration \cite{YangLispberger2014}. It has even been proposed that the refractory period which follows a complex spike has a role in plasticity at the granule cell - Purkinje cell synapse \cite{Houghton2014}.
 
 There is also emerging evidence for an interaction between complex
 spike waveform changes, simple spike activity and behaviour
@@ -212,10 +212,9 @@ cell simple spike activity within a useful operational range
 Purkinje cell responses are variable: there is considerable variation in firing rates, input response properties, morphology and complex spike waveform. There are, however, some features that appear to be generic to Purkinje cells: the spikelets that make up the complex spike have a significantly smaller amplitude than the initial spikes and there is an extended refractory period after a complex spike. The purpose of this paper is to suggest mechanisms to support these features by describing simple models that can simulate them.
 
 Given the evidence that a dynamic interplay between complex spike
-waveform and simple spike activity underlies cerebellar operation, there is a need to gain a mechanistic understanding of the generation of the complex spike and its interaction with simple spiking. Despite the existence of a range of computational models to address various features of Purkinje cell electrical behaviour, a simple model that captures complex spike generation, waveform variability and interactions with simple spike activity is lacking. Two models are presented here, a three-channel model that shows that three channels: a leak channel and two active channels, are sufficient to simulate the complex spike waveform and a five-channel model, which demonstrates how some of the interactions between simple spikes and complex spikes can be explained by calcium dynamics. 
+waveform and simple spike activity underlies cerebellar operation, there is a need to gain a mechanistic understanding of the generation of the complex spike and its interaction with simple spiking. Despite the existence of a range of computational models to address various features of Purkinje cell electrical behaviour, a simple model that captures complex spike generation, waveform variability and interactions with simple spike activity is lacking. Two models are presented here, a three-current model that shows that three channels: a leak channel and two active channels, are sufficient to simulate the complex spike waveform and a five-current model, which demonstrates how some of the interactions between simple spikes and complex spikes can be explained by calcium dynamics. 
 
-These models serve as a simple description of the ion-channel dynamics supporting complex spike production and should enable further analysis of complex spiking and its relationship to simple spiking. In this way, the models serve as complement to the large and detailed models described in \cite{VeysEtAl2013,ZangEtAl2018}, they provide a possible explanation for the channel dynamics that produce the complex spike and give a starting point for a model which also incorporate the interaction between simple spike rate and complex spike waveform described in \cite{BurroughsEtAl2016}. Furthermore, given the extent of Purkinje cell dendritic arborisations it is clear that afferent inputs play a key role in shaping Purkinje cell dynamics. There is therefore a need to have a simple model that describes Purkinje cell firing patterns so that network studies can be performed to better understand the mechanisms of cerebellar operation.
-
+These models serve as a simple description of the ion-channel dynamics supporting complex spike production and should enable further analysis of complex spiking and its relationship to simple spiking. In this way, the models serve as complement to the large and detailed models described in \cite{VeysEtAl2013,ZangEtAl2018}, they provide a possible explanation for the channel dynamics that produce the complex spike and give a starting point for a model which also incorporate the interaction between simple spike rate and complex spike waveform described in \cite{BurroughsEtAl2016}. Furthermore, given the extent of Purkinje cell dendritic arborisations it is clear that afferent inputs play a key role in shaping Purkinje cell dynamics. 
 
 \section{Methods}
 
@@ -225,7 +224,7 @@ These models serve as a simple description of the ion-channel dynamics supportin
 %perhaps do a general paragraph and note that the many choices made here will be reflected on in the discussion
 
 In this paper two single-compartment models of the Purkinje
-cell somatic voltage dynamics are presented. The three-channel model has
+cell somatic voltage dynamics are presented. The three-current model has
 a leak channel and two voltage-gated channels:
 \begin{equation}
 \label{eq:membrane_voltage_3}
@@ -252,13 +251,13 @@ resurgence found in Purkinje cells is a sufficient as a mechanism for
 producing the complex spike waveform.
 
 The second model includes some of the effects of calcium dynamics and
-will be referred to as the five-channel model. It has
+will be referred to as the five-current model. It has
 \begin{equation}
 \label{eq:membrane_voltage_5}
 C\frac{dV}{dt} =I_{\leak}+I_{\na}+I_\k+I_\ca+I_\sk+I_{\mathrm{e}}
 \end{equation}
-In addition to the three-channel model described above in
-Eq~\ref{eq:membrane_voltage_3}, the five-channel model also has a
+In addition to the three-current model described above in
+Eq~\ref{eq:membrane_voltage_3}, the five-current model also has a
 calcium channel, with current $I_\ca$ and a calcium-gated potassium
 channel, with current $I_\sk$. These two additional currents are also
 described below; they were selected because they are a prominent
@@ -294,13 +293,13 @@ where $t_0$ is the time the double exponential function reaches its maximum:
 t_0 = \frac{\tau_+\tau_-} {\tau_--\tau_+}\log{\frac{\tau_-}{\tau_+}}.
 \end{equation}
 $I_0=62\,\mu\mathrm{A}\cm^{-2}$ and $I_0=67\,\mu\mathrm{A}\cm^{-2}$
-are background currents in the three-channel model and five-channel
+are background currents in the three-current model and five-current
 model respectively, $I_{\mathrm{cf}}=52\,\mu\mathrm{A}\cm^{-2}$ and
 $I_{\mathrm{cf}}=71\,\mu\mathrm{A}\cm^{-2}$ are the maximum amplitudes
-of the climbing fibre current in the three-channel model and the
-five-channel model respectively, $\tau_+=0.3\mse$ and $\tau_-=4\mse$
+of the climbing fibre current in the three-current model and the
+five-current model respectively, $\tau_+=0.3\mse$ and $\tau_-=4\mse$
 are the rise and decay timescales respectively and are the same for
-both the three-channel and five-channel model.
+both the three-current and five-current model.
 
 The current through the sodium channel was modelled using a Markovian scheme developed by \cite{RamanBean2001}, see
 Table~\ref{fig:MarkovRNa}. This scheme models the dynamics of both the transient and resurgent gates. The current is
@@ -327,7 +326,7 @@ where $\bar{g}_{\k}= 15\msi$ and $E_{\k}=-88\mv$. Channel kinetics are described
 \exp{\left(-\frac{V-30\mv}{26.5\mv}\right)}\mathrm{ms}^{-1}
 \end{align}
 
-The five-channel model extends the three-channel model to include
+The five-current model extends the three-current model to include
 calcium. It adds a calcium channel, a model of calcium concentration
 dynamics in the soma and a calcium-gated potassium channel. The
 calcium channel is a P/Q type calcium channel with equations and
@@ -394,7 +393,7 @@ values used in this modelling study were taken from experimental
 work. However, some parameters that are not easily measured
 experimentally are optimised here so that the complex spike waveform
 shape had the best fit to complex spikes recorded experimentally
-\textit{in vitro}, see Fig 1D in \cite{DavieEtAl2008}.
+\textit{in vitro}, see Figure 1D in \cite{DavieEtAl2008}.
 
 Simulations were run in Python 2.7, OS on a CPU. Models were simulated
 as ordinary differential equations and integration was performed
@@ -410,7 +409,7 @@ hand-tuning techniques. In order to have a definite
 target in tuning parameters the model was optimized to simulate
 features of a typical complex spike recorded \textit{in vitro} in
 \cite{DavieEtAl2008} and illustrated here, with permission, in
-Fig~\ref{injection_amplitudes}Aiv. This complex spike was chosen
+Fig.~\ref{injection_amplitudes}Aiv. This complex spike was chosen
 because complex spikes with three spikelets are most common
 \cite{BurroughsEtAl2016}. Although this is a specific experimental
 result; it exhibits those general features of complex spikes we wanted
@@ -424,7 +423,7 @@ duration.
 The error used was the squared distance between the simulated Purkinje
 cell voltage trace in response to climbing fibre input and the typical
 complex spike recorded \textit{in vitro},
-Fig~\ref{injection_amplitudes}Aiv. Error minimization used the
+Fig.~\ref{injection_amplitudes}Aiv. Error minimization used the
 downhill simplex algorithm in the \texttt{scipy.optimize.minimize}
 package. The square-error can be unstable for spike-like profiles,
 given that minor changes in the timing of individual spikelet peaks
@@ -439,7 +438,7 @@ simulating complex spikes were comparable to those necessary to
 reproduce the same complex spike \textit{in vitro}. In the model,
 injections of climbing-fibre-like somatic currents varied from 8
 $\mu$A$/$cm$^2$ through to 215 $\mu$A$/$cm$^2$
-Fig~\ref{injection_amplitudes}. Assuming a surface area of 500
+Fig.~\ref{injection_amplitudes}. Assuming a surface area of 500
 $\mu$m$^2$ this would correspond to current injections between 0.4 nA
 and 10.75 nA.
 
@@ -447,18 +446,18 @@ and 10.75 nA.
 
 \section{Results}
 
-The three-channel and five-channel model were tested. After fitting
-those parameters that are not known from experiment, the three-channel
+The three-current and five-current model were tested. After fitting
+those parameters that are not known from experiment, the three-current
 model simulates complex spikes whose structure exhibits those features
-which are broadly typical to Purkinje cells; the five-channel model in
+which are broadly typical to Purkinje cells; the five-current model in
 addition, simulated the extended refractory period which follows
-complex spikes.
+complex spikes. Table~\ref{table1} gives a list of the model parameters, giving the source for parameters that have been fixed to an experimental value and noting which parameters where adjusted to fit the target complex spike.
 
-The three-channel model includes a leak channel, a sodium channel with
+The three-current model includes a leak channel, a sodium channel with
 both transient and resurgent sodium gates, and a fast potassium
 channel. The main features of the complex spike shape observed
 \textsl{in vitro} and described in \cite{DavieEtAl2008}, are found in
-this three-channel model, Fig~\ref{injection_amplitudes}. With
+this three-current model, Fig.~\ref{injection_amplitudes}. With
 increasing injections of climbing-fibre-induced somatic current, the
 number of spikelets in the simulated complex spike increased from one
 to three. Each additional spikelet had successively greater amplitudes
@@ -469,7 +468,7 @@ spikelets increases to three. Further increases cause the amplitude of
 the spikelets to decrease, before the spikelets are lost altogether
 and replaced by a depolarisation plateau. The model was robust to
 injections of greater parallel fibre current and the subsequent
-increases in the rate of simple spike firing.
+increases in the rate of simple spike firing. To indicate the relationship between the complex spike and the input current these are plotted together in Fig.~\ref{fig:S1_fig} for the specific complex spike seen in Fig.~\ref{injection_amplitudes}Biv.
 
 
 %\begin{figure}[!ht]
@@ -484,7 +483,7 @@ increases in the rate of simple spike firing.
 %\end{figure}
 
 The contributions of each of the individual currents are outlined in
-Fig~\ref{currents}.  The interplay between the resurgent sodium and
+Fig.~\ref{currents}.  The interplay between the resurgent sodium and
 fast potassium currents is critical in generating the spikelets in the
 complex spike. Spikelet formation is absent following the removal of
 the K\textsubscript{v}3.3 current, in line with experimental
@@ -513,7 +512,7 @@ currents is therefore necessary for modelling complex spikes.
 It is possible to increase the number of spikelets generated in the
 complex spike waveform to more than three by increasing the decay time
 constant $\tau_-$ in the injected current $I_{\mathrm{e}}$,
-Fig~\ref{fig:injection_durations}. This is in line with experimental
+Fig.~\ref{fig:injection_durations}. This is in line with experimental
 studies, which have shown that an increase in the number of bursts in
 the pre-synaptic olivary action potential generates an increase in
 dendritic calcium spikes, which is in turn linearly related to the
@@ -549,15 +548,15 @@ similar to the Purkinje cell responses described experimentally
 %\label{fig:injection_durations}}
 %\end{figure}
 
-In addition to generating complex spikes, the three-channel model also
-produces simple spikes, Fig~\ref{fig:long_time_base}A. A distinctive
+In addition to generating complex spikes, the three-current model also
+produces simple spikes, Fig.~\ref{fig:long_time_base}A. A distinctive
 feature of Purkinje cell activity is the pause in the ongoing simple
 spike activity following a complex spike event \cite{BellGrimm1969,GranitPhillips1956,Thach1967}, which typically lasts for
-$50\mse$. In the three-channel model there is only a very brief
+$50\mse$. In the three-current model there is only a very brief
 cessation in the ongoing simple spike train following the complex
 spike event, a pause that was no greater than the $\approx 15\mse$
-time between two simple spikes, Fig~\ref{fig:long_time_base}A. Thus,
-the three-channel model does a poor job of modelling the interaction
+time between two simple spikes, Fig.~\ref{fig:long_time_base}A. Thus,
+the three-current model does a poor job of modelling the interaction
 between complex spikes and simple spikes. To address this, two further
 channels were added: a voltage-gated calcium channel and a
 calcium-gated potassium channel.
@@ -573,11 +572,10 @@ calcium-gated potassium channel.
 %\label{fig:long_time_base}
 %\end{figure}
 
-The baseline simple spike rate in the five-channel model is $\sim
-40\hz$, Fig~\ref{fig:long_time_base}B. This is in line with the rate
+The baseline simple spike rate in the five-current model is $\sim
+40\hz$, Fig.~\ref{fig:long_time_base}B. This is in line with the rate
 of spontaneous Purkinje cell simple spike activity recorded \textit{in
-  vivo}.  The ongoing simple spike activity was interrupted by
-simulated complex spikes generated in response to injections of
+  vivo} in anaesthetized rat, see for example \cite{BurroughsEtAl2016}.  The ongoing simple spike activity was interrupted by simulated complex spikes generated in response to injections of
 climbing-fibre-like current. Following individual complex spikes there
 was a transient cessation in the simple spike train that resembles
 Purkinje cell behaviour observed \textit{in vitro} and \textit{in
@@ -585,10 +583,10 @@ Purkinje cell behaviour observed \textit{in vitro} and \textit{in
 baseline levels of simple spike activity. This pause was greater than
 expected if complex spikes and simple spikes are independent (simple
 spike interespike interval divided by two, see \cite{XiaoEtAl2014}),
-unlike in the three-channel model. Simulated complex spikes in the
-five-channel model, in response to increasing time constants
+unlike in the three-current model. Simulated complex spikes in the
+five-current model, in response to increasing time constants
 describing the decay of the injected climbing fibre input, behave
-similarly to those simulated in the three-channel model,
+similarly to those simulated in the three-current model,
 Fig.~\ref{S2_Fig}.
 
 
@@ -612,7 +610,7 @@ channel prolonged the duration of the post-complex spike pause in
 simple spike activity and reduced baseline simple spike rates, whereas
 decreases in maximal conductance reduced the duration of the pause and
 increased simple spike firing frequency, see
-Fig.~\ref{S1_Fig}. Increasing $\bar{g}_\sk$ in the model caused a
+Fig.~\ref{S3_Fig}. Increasing $\bar{g}_\sk$ in the model caused a
 slight increase in simple spike rate above baseline levels after the
 pause. This is reminiscent of simple spike modulation observed in
 Purkinje cells \textsl{in vivo} \cite{BurroughsEtAl2016}.
@@ -636,11 +634,11 @@ Purkinje cells \textsl{in vivo} \cite{BurroughsEtAl2016}.
 
 The two single-compartment models presented here succeed in modelling
 key features of spike generation in the Purkinje cell soma. The
-three-channel model exhibits the main features of the complex spike: a
+three-current model exhibits the main features of the complex spike: a
 high-amplitude initial spike that is followed by a succession of
 smaller amplitude spikelets with the first spikelet having a smaller
-amplitude than those that follow. In the five-channel model, which
-extends the three-channel model by including a P/Q type calcium
+amplitude than those that follow. In the five-current model, which
+extends the three-current model by including a P/Q type calcium
 channel and a calcium-activated potassium channel, some of the
 interactions between complex spike activity and background simple
 spike behaviour are also observed in simulations.
@@ -734,7 +732,7 @@ complex spike dynamics. The exception to this is the applied
 background current: as well as reducing simple spike activity,
 reducing the background current increases the amplitude of spikelets.
 
-Calcium-activated potassium channels are included in the five-channel
+Calcium-activated potassium channels are included in the five-current
 model because they contribute to interactions between complex spikes
 and simple spike activity and regulate Purkinje cell output
 \cite{TankEtAl1988, McKayEtAl2007}. SK channels play an important role
@@ -767,13 +765,13 @@ of the soma. The calcium concentration within this narrow submembrane
 region was modelled in the present study. Intracellular calcium
 dynamics, in particular the time course of calcium concentration
 decay, was found to modulate simulated Purkinje cell simple spike
-activity. However, it should be noted that the five-channel model
+activity. However, it should be noted that the five-current model
 includes parameters, such as the submembrane shell thickness and decay
 in calcium concentration, that are not well-specified experimentally
 and in any case likely depend on somatic morphology, something that is
 variable across Purkinje cells.
 
-Although the three-channel and five-channel models differ in how the
+Although the three-current and five-current models differ in how the
 complex spike affects simple spiking, there is almost no difference in
 the complex spike waveform in the two models, Fig.~\ref{S2_Fig}. On
 the other hand, the shape of the pre-synaptic climbing fibre input
@@ -820,10 +818,10 @@ presented above.
 The models presented in this study are tuned to match a complex spike
 recorded \textsl{in vitro} in \cite{DavieEtAl2008}. This example is
 chosen as a target because it typifies features of the complex spike
-waveform observed in numerous studies, both \textsl{in vitro}
+waveform observed in numerous \textsl{in vitro} studies
 \cite{ZaghaEtAl2008, zhang2017ethanol, MonsivaisEtAl2005,
-  khaliq2005axonal} and \textsl{in vivo} \cite{WarnaarEtAl2015},
-though these studies are less common. These feature, which are broadly
+  khaliq2005axonal} and in an \textsl{in vivo} study, \cite{WarnaarEtAl2015}:
+\textsl{in vivo} studies that give wave form data are less common. These feature, which are broadly
 stereotypical are
 \begin{enumerate}
 \item the first spike is similar in shape to the simple spike,
@@ -836,12 +834,11 @@ target beause the complex spike waveform was recorded there in
 response to increasing injections of climbing fibre like
 currents. This describes the complex spike waveform response to
 different somatic inputs and provides a useful range of responses to
-use as a target for model fitting.
+use as a target for model fitting. The five-current model also captures the extended refractory period that follows a complex spike; since this feature is easily seen in extra-cellular recordings, it is supported by a larger range of \textsl{in vivo} data, for example 
 
-
-However, complex spikes do exhibit large amounts of variablity
+However, complex spikes do exhibit large amounts of variability
 \cite{BurroughsEtAl2016, WarnaarEtAl2015}. Interestingly both the
-three- and five-channel models presented in the current study can be
+three- and five-current models presented here can be
 used to describe these variations: for example, the difference in
 complex spikes seen in \cite{MonsivaisEtAl2005} matches the variation
 in waveform seen in Fig.~\ref{S2_Fig}.
@@ -965,8 +962,7 @@ tuned.
  %\href{http://home.frontiersin.org/about/author-guidelines#SupplementaryMaterial}{Supplementary Material} should be uploaded separately on submission, if there are Supplementary Figures, please include the caption in the same file as the figure. LaTeX Supplementary Material templates can be found in the Frontiers LaTeX folder.
 
 \section*{Data Availability Statement}
- The Python code used to create the figures is available at \texttt{http://github.com}.\footnote{Code will be made available and
-  url supplied here.}
+ The Python code used to create the figures is available at \texttt{github.com/PurkinjeCellSimpleModel}.
 %The datasets [GENERATED/ANALYZED] for this study can be found in the [NAME OF REPOSITORY] [LINK].
 % Please see the availability of data guidelines for more information, at https://www.frontiersin.org/about/author-guidelines#AvailabilityofData
 
@@ -1011,19 +1007,25 @@ tuned.
 \caption{\textbf{Simulated complex spike responses to increasing
     amplitudes of injected current}. The top row \textbf{(A)} shows \textsl{in
     vitro} Purkinje cell recordings from \protect\cite{DavieEtAl2008} in response to increasing (from 5 $nA$ \textbf{(Ai)} through to 22 $nA$ \textbf{(Avi)}) injections of climbing-fibre-like synaptic current. The bottom row \textbf{(B)} shows
-  the result of the three-channel model simulation in response to increasing injections of climbing-fibre-like somatic current (from 8 $uA/cm2$ \textbf{(Bi)} through to 215 $uA/cm2$ \textbf{(Bvi)}). The structure of the complex spikes, and the manner of their response to increasing amplitudes of injected current, are very similar when comparing the \textsl{in vitro} responses and the output of our model. The models presented here were fitted to the complex spike recorded in \textbf{(Aiv)}.}
+  the result of the three-current model simulation in response to increasing injections of climbing-fibre-like somatic current (from 8 $uA/cm2$ \textbf{(Bi)} through to 215 $uA/cm2$ \textbf{(Bvi)}). The structure of the complex spikes, and the manner of their response to increasing amplitudes of injected current, are very similar when comparing the \textsl{in vitro} responses and the output of our model. The models presented here were fitted to the complex spike recorded in \textbf{(Aiv)}.}
 \label{injection_amplitudes}
 \end{figure}
 
-
+\begin{figure}[!ht]
+\caption{\textbf{Comparison of the input current and complex spike.}
+  This shows 10 ms of the \textbf{(above)} input to the three-current
+  model and \textbf{(below)} complex spike response; the complex spike
+  is the same one shown in Fig.~\ref{injection_amplitudes}Biv. The input departs from $I_0$ at $t=1\mse$.}
+    \label{fig:S1_fig}
+\end{figure}
 
 \begin{figure}[!ht]
 %\includegraphics[width=\linewidth]{JNeuroFigures/figure_2_currents_three_channel_model_monochrome.jpg}
 \caption{\textbf{Currents involved in complex spike formation.} The
-contribution of each current in the three-channel model ($I_{\na}$,
+contribution of each current in the three-current model ($I_{\na}$,
 dash; $I_{\k}$, dot; $I_{\leak}$, dash-dot) to
 complex spike generation, \textbf{(A)}. \textbf{(B)} shows the
- voltage trace of the simulated Purkinje cell in the three-channel model. The resulting simulated Purkinje cell activity
+ voltage trace of the simulated Purkinje cell in the three-current model. The resulting simulated Purkinje cell activity
 following removal of each of the active conductances (\textbf{(C)}: $I_{\na}$
 , \textbf{(D)}: $I_{\k}$). Arrows
 indicate the times of the simulated climbing-fibre-like current
@@ -1047,26 +1049,25 @@ injections.}
 \label{fig:injection_durations}}
 \end{figure}
 
-
-
 \begin{figure}[!ht]
 %\includegraphics[width=\linewidth]{JNeuroFigures/figure_5_JN.jpg}
 \caption{\textbf{Longer time-base Purkinje cell simulations showing
     complex spike and simple spike activity.} Two second simulation of
-  the three-channel model \textbf{(A)} and the five-channel model
+  the three-current model \textbf{(A)} and the five-current model
     \textbf{(B)}. Arrows indicate the times of climbing-fibre-like
     current injections.}
 \label{fig:long_time_base}
 \end{figure}
 
 
+
 \begin{figure}[!ht]
 %\includegraphics[width=\linewidth]{JNeuroFigures/figure_4_tau_decay_five_channel_model.jpg}
-\caption{\textbf{Response of the five-channel model to input is similar
-    to the response of the three-channel model.} Simulated complex
-  spike waveforms in the five-channel model with added calcium and SK
+\caption{\textbf{Response of the five-current model to input is similar
+    to the response of the three-current model.} Simulated complex
+  spike waveforms in the five-current model with added calcium and SK
   channels behave similarly to increasing time constants describing the decay of the
-  injected climbing fibre input as the three-channel model. Complex spike waveform simulations when increasing $\tau_-$ from 4 ms
+  injected climbing fibre input as the three-current model. Complex spike waveform simulations when increasing $\tau_-$ from 4 ms
   \textbf{(A)}, 7 ms \textbf{(B)}, 11 ms \textbf{(C)} and 18 ms
   \textbf{(D)}. Arrows indicate the times
   of the simlulated climbing-fibre-like current injections.}
@@ -1086,7 +1087,7 @@ injections.}
   and increases pause duration \textbf{(C)}. Arrows indicate the time
   of climbing-fibre-like current injection. The model was robust to
   small changes in other parameter values.}
-\label{S1_Fig}
+\label{S3_Fig}
 \end{figure}
 
 
