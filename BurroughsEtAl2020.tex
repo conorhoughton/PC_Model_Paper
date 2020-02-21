@@ -160,12 +160,12 @@ variable waveform. Although they are critical to cerebellar operation
 a simple model that describes the complex spike waveform is
 lacking. Here, a novel single-compartment model of Purkinje cell
 electrodynamics is presented. The simpler version of this model, with
-two active conductances, can simulate the features typical of complex
+two active conductances and a leak channel, can simulate the features typical of complex
 spikes recorded \textit{in vitro}. If calcium dynamics are also
 included, the model can capture the pause in simple spike activity
 that occurs after complex spike events. Together, these models provide
 an insight into the mechanisms behind complex spike spikelet
-generation, waveform variability and their interactions with the
+generation, waveform variability and their interactions with
 simple spike activity.
 
 \tiny
@@ -217,19 +217,30 @@ cell simple spike activity within a useful operational range
 Purkinje cell responses are highly variable: there is considerable variation in firing rates, input response properties, morphology and complex spike waveform. There are, however, some features that appear to be generic to Purkinje cells: the spikelets that make up the complex spike have a significantly smaller amplitude than the initial spikes and there is an extended refractory period after a complex spike. The purpose of this paper is to suggest mechanisms to support these features by describing simple models that can simulate them.
 
 Given the evidence that a dynamic interplay between complex spike
-waveform and simple spike activity underlies cerebellar operation, there is a need to gain a mechanistic understanding of the generation of the complex spike and its interaction with simple spiking. Despite the existence of a range of computational models to address various features of Purkinje cell electrical behaviour, a simple model that captures complex spike generation, waveform variability and interactions with simple spike activity is lacking. Two models are presented here, a three-current model that shows that three channels: a leak channel and two active channels, are sufficient to simulate the complex spike waveform and a five-current model, which demonstrates how some of the interactions between simple spikes and complex spikes can be explained by calcium dynamics. 
+waveform and simple spike activity underlies cerebellar operation,
+there is a need to gain a mechanistic understanding of the generation
+of the complex spike and its interaction with simple spiking. Despite
+the existence of a range of computational models to address various
+features of Purkinje cells, a simple model that captures complex spike
+generation, waveform variability and interactions with simple spike
+activity is lacking. In the current paper we explore through
+simulation the hypothesis that a restricted number of channel-dynamics
+can explain complex spike waveform. Two models are presented: a
+three-current model that shows that three channels, a leak channel and
+two active channels, are sufficient to simulate the complex spike
+waveform and a five-current model, which demonstrates how some of the
+interactions between simple spikes and complex spikes can be explained
+by calcium dynamics.
 
-These models serve as a simple description of the ion-channel dynamics
-supporting complex spike production and should enable further analysis
-of complex spiking and its relationship to simple spiking. In this
-way, the models complement the large and detailed models described
-by \cite{VeysEtAl2013,ZangEtAl2018}, they provide a possible
+These models serve as a description of the essential ion-channel
+dynamics supporting complex spike production and should enable further
+analysis of complex spiking and its relationship to simple spiking. In
+this way, the models complement the large and detailed models
+described by \cite{VeysEtAl2013,ZangEtAl2018}, they provide a possible
 explanation for the channel dynamics that produce the complex spike
 and give a starting point for a model which also incorporate the
 interaction between simple spike rate and complex spike waveform
-described in \cite{BurroughsEtAl2016}. Furthermore, given the extent
-of Purkinje cell dendritic arborisations it is clear that afferent
-inputs play a key role in shaping Purkinje cell dynamics.
+described in \cite{BurroughsEtAl2016}. 
 
 \section{Methods}
 
