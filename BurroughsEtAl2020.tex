@@ -318,6 +318,123 @@ both the three-current and five-current model.
 
 \subsection{Ion channels}
 
+
+\begin{table*}[!t]
+\begin{center}
+\begin{tikzpicture}
+\node    (C1)                     {C$_1$};
+\node    (C12)[right of=C1] {};
+\node    (C12u)[above = -0.1cm of C12]{$4\alpha$};
+\node    (C12b)[below = -0.1cm of C12]{$\beta$};
+\node    (C2)[right of=C12]   {C$_2$};
+\node    (C23)[right of=C2] {};
+\node    (C23u)[above = -0.1cm of C23]{$3\alpha$};
+\node    (C23b)[below = -0.1cm of C23]{$2\beta$};
+\node    (C3)[right of=C23]   {C$_3$};
+\node    (C34)[right of=C3] {};
+\node    (C34u)[above = -0.1cm of C34]{$2\alpha$};
+\node    (C34b)[below = -0.1cm of C34]{$3\beta$};
+\node    (C4)[right of=C34]   {C$_4$};
+\node    (C45)[right of=C4] {};
+\node    (C45u)[above = -0.1cm of C45]{$\alpha$};
+\node    (C45b)[below = -0.1cm of C45]{$4\beta$};
+\node    (C5)[right of=C45]   {C$_5$};
+\node    (C5O)[right of=C5] {};
+\node    (C5Ou)[above = -0.1cm of C5O]{$\gamma$};
+\node    (C5Ob)[below = -0.1cm of C5O]{$\delta$};
+\node    (O)[right of =C5O]   {O};
+\node    (OB)[right of=O] {};
+\node    (OBu)[above = -0.1cm of OB]{$\epsilon$};
+\node    (OBb)[below = -0.1cm of OB]{$\xi$};
+\node    (B)[right of =OB]   {B};
+
+\node    (C1I1)[below of=C1] {};
+\node    (C1I1l)[left = -0.1cm of C1I1]{\scriptsize{$U$}};
+\node    (C1I1r)[right = -0.1cm of C1I1]{\scriptsize{$D$}};
+\node    (C2I2)[below of=C2] {};
+\node    (C2I2l)[left = -0.1cm of C2I2]{$\frac{U}{a}$};
+\node    (C2I2r)[right = -0.1cm of C2I2]{\scriptsize{$Da$}};
+\node    (C3I3)[below of=C3] {};
+\node    (C3I3l)[left = -0.1cm of C3I3]{$\frac{U}{a^2}$};
+\node    (C3I3r)[right = -0.1cm of C3I3]{\scriptsize{$Da^2$}};
+\node    (C4I4)[below of=C4] {};
+\node    (C4I4l)[left = -0.1cm of C4I4]{$\frac{U}{a^3}$};
+\node    (C4I4r)[right = -0.1cm of C4I4]{\scriptsize{$Da^3$}};
+\node    (C5I5)[below of=C5] {};
+\node    (C5I5l)[left = -0.1cm of C5I5]{$\frac{U}{a^4}$};
+\node    (C5I5r)[right = -0.1cm of C5I5]{\scriptsize{$Da^4$}};
+\node    (OI6)[below of=O] {};
+\node    (OI6l)[left = -0.1cm of OI6]{\scriptsize{$F$}};
+\node    (OI6r)[right = -0.1cm of OI6]{\scriptsize{$N$}};
+
+
+\node    (I1)[below of=C1I1]   {I$_1$};
+\node    (I12)[right of=I1] {};
+\node    (I12u)[above = -0.1cm of I12]{$\alpha a$};
+\node    (I12b)[below = -0.1cm of I12]{$4\beta/a$};
+\node    (I2)[right of=I12]   {I$_2$};
+\node    (I23)[right of=I2] {};
+\node    (I23u)[above = -0.1cm of I23]{$2\alpha a$};
+\node    (I23b)[below = -0.1cm of I23]{$3\beta/a$};
+\node    (I3)[right of=I23]   {I$_3$};
+\node    (I34)[right of=I3] {};
+\node    (I34u)[above = -0.1cm of I34]{$3\alpha a$};
+\node    (I34b)[below = -0.1cm of I34]{$2\beta/a$};
+\node    (I4)[right of=I34]  {I$_4$};
+\node    (I45)[right of=I4] {};
+\node    (I45u)[above = -0.1cm of I45]{$4\alpha a$};
+\node    (I45b)[below = -0.1cm of I45]{$\beta/a$};
+\node    (I5)[right of=I45]  {I$_5$};
+\node    (I56)[right of=I5] {};
+\node    (I56u)[above = -0.1cm of I56]{$\gamma$};
+\node    (I56b)[below = -0.1cm of I56]{$\delta$};
+\node    (I6)[right of=I56]  {I$_6$};
+\draw[ha-ha] (C1) -- (C2);
+\draw[ha-ha] (C2) -- (C3);
+\draw[ha-ha] (C3) -- (C4);
+\draw[ha-ha] (C4) -- (C5);
+\draw[ha-ha] (C5) -- (O);
+\draw[ha-ha] (O) -- (B);
+\draw[ha-ha] (I1) -- (I2);
+\draw[ha-ha] (I2) -- (I3);
+\draw[ha-ha] (I3) -- (I4);
+\draw[ha-ha] (I4) -- (I5);
+\draw[ha-ha] (I5) -- (I6);
+\draw[ha-ha] (I1) -- (C1);
+\draw[ha-ha] (I2) -- (C2);
+\draw[ha-ha] (I3) -- (C3);
+\draw[ha-ha] (I4) -- (C4);
+\draw[ha-ha] (I5) -- (C5);
+\draw[ha-ha] (I6) -- (O);
+\end{tikzpicture}
+\end{center}
+where
+\begin{eqnarray}
+\alpha &=& 150\exp{\left(\frac{V}{20\mv}\right)}\msp\cr
+\beta  &=& 3\exp{\left(-\frac{V}{20\mv}\right)}\msp\cr
+\xi    &=& 0.03\exp{\left(-\frac{V}{25\mv}\right)}\msp
+\end{eqnarray}
+and $\gamma = 150\msp$, $\delta= 40\msp$, $\epsilon = 1.75\msp$, $D=0.005\msp$, $U= 0.5\msp$, $N=0.75\msp$, $F=0.005\msp$ with
+\begin{equation}
+a=[(U/D)/(F/N)]^{1/8}=3.3267
+\end{equation}
+\caption{\textbf{Current through the resurgent sodium channel is
+    described using a Markovian Scheme.} $C_1$-$C_5$ describe
+  sequential closed configurations; $I_1$-$I_6$ describe sequential
+  inactivated states; $O$ represents the open channel configuration,
+  sodium ions will only pass through the channel when it is in this
+  state. $B$ describes a second inactivated state where the channel is
+  likened to being in an open-but-blocked configuration that is
+  non-conducting. Return from this state back to the closed, or
+  inactivated, states must occur through the open ($O$)
+  configuration. The rate constants describing transitions between
+  states; all rate values have been taken from
+  \protect\citet{RamanBean2001}.
+\label{fig:MarkovRNa}}
+\end{table*}
+
+
+
 The current through the sodium channel was modelled using a Markovian scheme developed by \citet{RamanBean2001}, see
 Table~\ref{fig:MarkovRNa}. This scheme models the dynamics of both the transient and resurgent gates. The current is
 \begin{equation}
@@ -407,6 +524,44 @@ w_{\infty}   &= \frac{0.81}{1 + \exp{(-(\log{\{[\ca^{2+}]/(1\,\mathrm{nM})\}}+0.
 
 \subsection{Implementation and model fitting}
 
+
+
+\begin{table*}[!t]
+\centering
+\textbf{Parameter values}
+\begin{center}
+\begin{tabular}{|l l l|}
+\hline
+Parameter & Value & Reference \\ \hline
+$C$&1 $\mu\mathrm{F}\,\mathrm{cm}^{-2}$& \citep{RothHausser2001}\\ \hline
+$\bar{g}_\leak$&$2\msi$& \citep{RappEtAl1994}\\ \hline
+$\bar{g}_\na$&$47.2\msi$&  $\star\dagger$\\ \hline
+$\bar{g}_\k$ &$200\msi$& $\star$ $198\msi$ \citep{AkemannKnopfel2006}\\ \hline
+$\bar{g}_\ca$&$0.3\msi$& $\star$ $0.5\msi$ \citep{MiyashoEtAl2001} \\ \hline
+$\bar{g}_\sk$&$78\msi$& $\star$ $120\msi$ \citep{RubinCleland2006}\\ \hline
+$E_\leak$&$-88\mv$& \citep{MasoliEtAl2015}\\ \hline
+$E_\k$&$-88\mv$& \citep{MasoliEtAl2015}\\ \hline
+$E_\na$&$45\mv$& \citep{DeSchutterBower1994a}\\ \hline
+$E_\ca$&$135\mv$& \citep{DeSchutterBower1994a}\\ \hline
+$[\ca^{2+}]$&$30 nM\cm^{-3}$& \citep{KanoEtAl1995}\\ \hline
+$\delta r$&$0.2\,\mu\mathrm{m}$& \\ \hline
+$I_0$&$62.46\,\mu\mathrm{A}\cm^{-2}$& $\star$\\ \hline
+$I_{\mathrm{cf}}$&$90\,\mu\mathrm{A}\cm^{-2}$& $\ddagger$\citep{StuartHausser1994}\\ \hline
+$\tau_+$&$0.3\mse$&  $\ddagger$\citep{StuartHausser1994}\\ \hline
+$\tau_-$&$4\mse$& $\ddagger$\citep{StuartHausser1994}\\ \hline
+\end{tabular}
+\end{center}
+\caption{Parameter values and their associated references. The
+  parameters marks with a star ($\star$) have been handtuned, where
+  there is a reference it is to the starting value given beside the
+  star. The parameters marked with a double dagger ($\ddagger$) have
+  been chosen to fit the dynamics of the somatic voltage change
+  recorded in response to climbing fibre activity in
+  \protect\citet{DavieEtAl2008}.}
+\label{table1}
+\end{table*}
+
+
 Parameter values are given in Table~\ref{table1}. Most parameter
 values used in this modelling study were taken from experimental
 studies. However, some parameters that are not easily measured
@@ -475,6 +630,25 @@ parameters, giving the source for parameters that have been fixed to
 an experimental value and noting which parameters were adjusted to
 fit the target complex spike.
 
+
+\begin{figure*}[!ht]
+\includegraphics[width=\linewidth]{Figure1.png}
+\caption{\textbf{Simulated complex spike responses to increasing
+    amplitudes of injected current}. The top row \textbf{(A)} shows \textsl{in
+    vitro} Purkinje cell recordings from \protect\citet{DavieEtAl2008} in response to increasing (from 5 $nA$ \textbf{(Ai)} through to 22 $nA$ \textbf{(Avi)}) injections of climbing-fibre-like synaptic current. The bottom row \textbf{(B)} shows
+  the result of the three-current model simulation in response to increasing injections of climbing-fibre-like somatic current (from 8 $uA/cm2$ \textbf{(Bi)} through to 215 $uA/cm2$ \textbf{(Bvi)}). The structure of the complex spikes, and the manner of their response to increasing amplitudes of injected current, are very similar when comparing the \textsl{in vitro} responses and the output of our model. The models presented here were fitted to the complex spike recorded in \textbf{(Aiv)}.}
+\label{injection_amplitudes}
+\end{figure*}
+
+\begin{figure}[!ht]
+\includegraphics[width=\linewidth]{Figure2.png}
+\caption{\textbf{Comparison of the input current and complex spike.}
+  This shows 10 ms of the \textbf{(above)} input to the three-current
+  model and \textbf{(below)} complex spike response; the complex spike
+  is the same one shown in Fig.~\ref{injection_amplitudes}Biv. The input departs from $I_0$ at $t=1\mse$.}
+    \label{fig:S1_fig}
+\end{figure}
+
 The three-current model includes a leak channel, a sodium channel with
 both transient and resurgent sodium gates, and a fast potassium
 channel. The main features of the complex spike shape are found in
@@ -495,16 +669,20 @@ plotted together in Fig.~\ref{fig:S1_fig} for the specific complex
 spike seen in Fig.~\ref{injection_amplitudes}Biv.
 
 
-%\begin{figure}[!ht]
-%%\includegraphics[width=\linewidth]{JNeuroFigures/figure_3_three_channel_model.jpg}
-%\caption{\textbf{Simulated complex spike responses to increasing
-%    amplitudes of injected current}. The top row \textbf{(A)} shows \textsl{in
-%    vitro} Purkinje cell recordings from \protect\cite{DavieEtAl2008} in response to increasing (from 100 $nS$ \textbf{(Ai)} through to 500 $nS$ \textbf{(Avi)}) injections of climbing-fibre-like synaptic conductances. The bottom row \textbf{(B)} shows
-%  the result of the three-channel model simulation in response to increasing (from 8 $uA$ \textbf{(Bi)} through to 215 $uA$ \textbf{(Bvi)}) injections of climbing-fibre-like somatic current. The
-%  structure of the complex spikes, and the manner of their response to
-%  increasing amplitudes of injected current, are very similar when comparing the \textsl{in vitro} responses and the output of our model. The models presented here were fitted to the complex spike recorded in \textbf{(Aiv)}.}
-%\label{injection_amplitudes}
-%\end{figure}
+\begin{figure*}[!ht]
+  \includegraphics[width=\linewidth]{Figure3.png}
+\caption{\textbf{Currents involved in complex spike formation.} The
+contribution of each current in the three-current model ($I_{\na}$,
+dash; $I_{\k}$, dot; $I_{\leak}$, dash-dot) to
+complex spike generation, \textbf{(A)}. \textbf{(B)} shows the
+ voltage trace of the simulated Purkinje cell in the three-current model. The resulting simulated Purkinje cell activity
+following removal of each of the active conductances (\textbf{(C)}: $I_{\na}$
+, \textbf{(D)}: $I_{\k}$). Arrows
+indicate the times of the simulated climbing-fibre-like current
+injections.}
+\label{currents}
+\end{figure*}
+
 
 The contributions of each of the individual currents are outlined in
 Fig.~\ref{currents}.  The interplay between the resurgent sodium and
@@ -519,19 +697,24 @@ apparent after the initial spike of the complex spike, but spikelet
 generation fails. The combination of active sodium and potassium
 currents is therefore necessary for modelling complex spikes.
 
-%\begin{figure}[!ht]
-%%\includegraphics[width=\linewidth]{JNeuroFigures/figure_2_currents_three_channel_model_monochrome.jpg}
-%\caption{\textbf{Currents involved in complex spike formation.} The
-%contribution of each current in the three-channel model ($I_{\na}$,
-%dash; $I_{\k}$, dot; $I_{\leak}$, dash-dot) to
-%complex spike generation, \textbf{(A)}. \textbf{(B)} shows the
-% voltage trace of the simulated Purkinje cell in the three-channel model. The resulting simulated Purkinje cell activity
-%following removal of each of the active conductances (\textbf{(C)}: $I_{\na}$
-%, \textbf{(D)}: $I_{\k}$). Arrows
-%indicate the times of the simulated climbing-fibre-like current
-%injections.}
-%\label{currents}
-%\end{figure}
+
+\begin{figure*}[!ht]
+  \includegraphics[width=\linewidth]{Figure4.png}
+%\includegraphics[width=\linewidth]{JNeuroFigures/figure_4_tau_decay_three_channel_model.jpg}
+\caption{\textbf {Response of simulated complex spikes to increasing
+    durations of injected current.} The time constant describing the
+  decay of the climbing-fibre-like current injection affected the
+  shape of the complex spike waveform. Increasing $\tau_-$ from 4 ms
+  \textbf{(A)}, 7 ms \textbf{(B)}, 11 ms \textbf{(C)} and 18 ms
+  \textbf{(D)} increases the number, but decreases the amplitude, of
+  secondary spikelets within the complex spike. Arrows indicate the times
+  of the simulated climbing-fibre current injections. The shape of
+  these simulated complex spikes are similar to those recorded in
+  Purkinje cells \textit{in vitro}, see Figure 6B in
+  \protect\citet{MonsivaisEtAl2005}.
+\label{fig:injection_durations}}
+\end{figure*}
+
 
 It is possible to increase the number of spikelets generated in the
 complex spike waveform to more than three by increasing the decay time
@@ -556,21 +739,18 @@ the end of the complex spike are increased.  This is strikingly
 similar to the Purkinje cell responses described experimentally
 \textsl{in vitro} in \citet{MonsivaisEtAl2005}.
 
-%\begin{figure}[!ht]
-%%\includegraphics[width=\linewidth]{JNeuroFigures/figure_4_tau_decay_three_channel_model.jpg}
-%\caption{\textbf {Response of simulated complex spikes to increasing
-%    durations of injected current.} The time constant describing the
-%  decay of the climbing-fibre-like current injection affected the
-%  shape of the complex spike waveform. Increasing $\tau_-$ from 4 ms
-%  \textbf{(A)}, 7 ms \textbf{(B)}, 11 ms \textbf{(C)} and 18 ms
-%  \textbf{(D)} increases the number, but decreases the amplitude, of
-%  secondary spikelets within the complex spike. Arrows indicate the times
-%  of the simulated climbing-fibre current injections. The shape of
-%  these simulated complex spikes are similar to those recorded in
-%  Purkinje cells \textit{in vitro}, see Figure 6B in
-%  \protect\cite{MonsivaisEtAl2005}.
-%\label{fig:injection_durations}}
-%\end{figure}
+
+
+\begin{figure*}[!ht]
+  \includegraphics[width=\linewidth]{Figure5.png}
+%\includegraphics[width=\linewidth]{JNeuroFigures/figure_5_JN.jpg}
+\caption{\textbf{Longer time-base Purkinje cell simulations showing
+    complex spike and simple spike activity.} Two second simulation of
+  the three-current model \textbf{(A)} and the five-current model
+    \textbf{(B)}. Arrows indicate the times of climbing-fibre-like
+    current injections.}
+\label{fig:long_time_base}
+\end{figure*}
 
 In addition to generating complex spikes, the three-current model also
 produces simple spikes, Fig.~\ref{fig:long_time_base}A. A distinctive
@@ -586,15 +766,21 @@ channels were added: a voltage-gated calcium channel and a
 calcium-gated potassium channel.
 
 
-%\begin{figure}[!ht]
-%%\includegraphics[width=\linewidth]{JNeuroFigures/figure_5_JN.jpg}
-%\caption{\textbf{Longer time-base Purkinje cell simulations showing
-%    complex spike and simple spike activity.} Two second simulation of
-%  the three-channel model \textbf{(A)} and the five-channel model
-%    \textbf{(B)}. Arrows indicate the times of climbing-fibre-like
-%    current injections.}
-%\label{fig:long_time_base}
-%\end{figure}
+
+\begin{figure*}[!ht]
+  \includegraphics[width=\linewidth]{Figure6.png}
+%\includegraphics[width=\linewidth]{JNeuroFigures/figure_4_tau_decay_five_channel_model.jpg}
+\caption{\textbf{Response of the five-current model to input is similar
+    to the response of the three-current model.} Simulated complex
+  spike waveforms in the five-current model with added calcium and SK
+  channels behave similarly to increasing time constants describing the decay of the
+  injected climbing fibre input as the three-current model. Complex spike waveform simulations when increasing $\tau_-$ from 4 ms
+  \textbf{(A)}, 7 ms \textbf{(B)}, 11 ms \textbf{(C)} and 18 ms
+  \textbf{(D)}. Arrows indicate the times
+  of the simlulated climbing-fibre-like current injections.}
+\label{S2_Fig}
+\end{figure*}
+
 
 The baseline simple spike rate in the five-current model is $\sim
 40\hz$, Fig.~\ref{fig:long_time_base}B. This is in line with the rate
@@ -614,18 +800,24 @@ similarly to those simulated in the three-current model,
 Fig.~\ref{S2_Fig}.
 
 
-%\begin{figure}[!ht]
-%%\includegraphics[width=\linewidth]{JNeuroFigures/figure_4_tau_decay_five_channel_model.jpg}
-%\caption{\textbf{Response of the five-channel model to input is similar
-%    to the response of the three-channel model.} Simulated complex
-%  spike waveforms in the five-channel model with added calcium and SK
-%  channels behave similarly to increasing time constants describing the decay of the
-%  injected climbing fibre input as the three-channel model. Complex spike waveform simulations when   increasing $\tau_-$ from 4 ms
-%  \textbf{(A)}, 7 ms \textbf{(B)}, 11 ms \textbf{(C)} and 18 ms
-%  \textbf{(D)}. Arrows indicate the times
-%  of the simlulated climbing-fibre-like current injections.}
-%\label{S2_Fig}
-%\end{figure}
+
+\begin{figure*}[!ht]
+  \includegraphics[width=\linewidth]{Figure7.png}
+%\includegraphics[width=\linewidth]{JNeuroFigures/figure_6_five_channel.jpg}
+\caption{\textbf{The model is robust to changes in parameter values.}
+ Changing the parameter $\bar{g}_\sk=105\msi$ \textbf{(A)} influences simple
+  spike rate and pause duration. Decreasing $\bar{g}_\sk$ from
+  $105\msi$ to 80$\msi$ leads to an increase in background simple spike
+  rate and a reduction in the duration of the post-complex spike pause
+  in simple spike activity \textbf{(B)}, whereas increasing
+  $\bar{g}_\sk$ from $105\msi$ to 130$\msi$ decreases simple spike rate
+  and increases pause duration \textbf{(C)}. Arrows indicate the time
+  of climbing-fibre-like current injection. The model was robust to
+  small changes in other parameter values.}
+\label{S3_Fig}
+\end{figure*}
+
+
 
 Changes in the activity of the SK channel was found to influence
 Purkinje cell simple spike rate. Increases in the maximum conductance
@@ -638,20 +830,6 @@ Fig.~\ref{S3_Fig}. Increasing $\bar{g}_\sk$ in the model caused a
 slight increase in simple spike rate above baseline levels after the
 pause. This is reminiscent of simple spike modulation observed in
 Purkinje cells \textsl{in vivo} \citep{BurroughsEtAl2016}.
-
-%\begin{figure}[!ht]
-%\caption{\textbf{The model is robust to changes in parameter values.}
-% Changing the parameter $\bar{g}_\sk=105\msi$ \textbf{(A)} influences simple
-%  spike rate and pause duration. Decreasing $\bar{g}_\sk$ from
-%  $105\msi$ to 80$\msi$ leads to an increase in background simple spike
-%  rate and a reduction in the duration of the post-complex spike pause
-%  in simple spike activity \textbf{(B)}, whereas increasing
-%  $\bar{g}_\sk$ from $105\msi$ to 130$\msi$ decreases simple spike rate
-%  and increases pause duration \textbf{(C)}. Arrows indicate the time
-%  of climbing-fibre-like current injection. The model was robust to
-%  small changes in other parameter values.}
-%\label{S1_Fig}
-%\end{figure}
 
 
 \section{Discussion}
@@ -836,12 +1014,6 @@ channels, which are activated by GABA\textsubscript{B} receptors
 \citep{TabataEtAl2005}. These currents are likely to play a role in
 modulating Purkinje cell activity.
 
-%The models presented here are capable of simulating the precise
-%temporal and morphological features of the complex spike waveform
-%recorded \textit{in vitro} with incredible accuracy.
-
-% Add in the fact that our model captures the dynamics of PCs recorded from numerous experimental studies, both in vivo and in vitro.
-
 
 The models presented in this study are tuned to match complex spikes
 recorded \textsl{in vitro} in \citet{DavieEtAl2008}. This example is
@@ -930,296 +1102,11 @@ tuned.
 \section*{Conflict of Interest}
 The authors declare that they have no conflict of interest.
 
+\section*{Code Availability Statement}
+The Python code used to create the figures is available at \texttt{github.com/PurkinjeCellSimpleModel}.
 
-%\section*{Supplemental Data}
- %\href{http://home.frontiersin.org/about/author-guidelines#SupplementaryMaterial}{Supplementary Material} should be uploaded separately on submission, if there are Supplementary Figures, please include the caption in the same file as the figure. LaTeX Supplementary Material templates can be found in the Frontiers LaTeX folder.
 
-%\section*{Data Availability Statement}
-% The Python code used to create the figures is available at \texttt{github.com/PurkinjeCellSimpleModel}.
-%\bibliographystyle{spphys}      % basic style, author-year citations
 \bibliography{references}
-
-%%% Make sure to upload the bib file along with the tex file and PDF
-%%% Please see the test.bib file for some examples of references
-
-
-\section*{Figure captions}
-
-%%% Please be aware that for original research articles we only permit a combined number of 15 figures and tables, one figure with multiple subfigures will count as only one figure.
-%%% Use this if adding the figures directly in the mansucript, if so, please remember to also upload the files when submitting your article
-%%% There is no need for adding the file termination, as long as you indicate where the file is saved. In the examples below the files (logo1.eps and logos.eps) are in the Frontiers LaTeX folder
-%%% If using *.tif files convert them to .jpg or .png
-%%%  NB logo1.eps is required in the path in order to correctly compile front page header %%%
-
-%\begin{figure}[h!]
-%\begin{center}
-%\includegraphics[width=10cm]{logo1}% This is a *.eps file
-%\end{center}
-%\caption{ Enter the caption for your figure here.  Repeat as  necessary for each of your figures}\label{fig:1}
-%\end{figure}
-
-%
-%\begin{figure}[h!]
-%\begin{center}
-%\includegraphics[width=15cm]{logos}
-%\end{center}
-%\caption{This is a figure with sub figures, \textbf{(A)} is one logo, \textbf{(B)} is a different logo.}\label{fig:2}
-%\end{figure}
-
-%%% If you are submitting a figure with subfigures please combine these into one image file with part labels integrated.
-%%% If you don't add the figures in the LaTeX files, please upload them when submitting the article.
-%%% Frontiers will add the figures at the end of the provisional pdf automatically
-%%% The use of LaTeX coding to draw Diagrams/Figures/Structures should be avoided. They should be external callouts including graphics.
-
-\begin{figure}[!ht]
-%\includegraphics[width=\linewidth]{JNeuroFigures/figure_3_three_channel_model.jpg}
-\caption{\textbf{Simulated complex spike responses to increasing
-    amplitudes of injected current}. The top row \textbf{(A)} shows \textsl{in
-    vitro} Purkinje cell recordings from \protect\citet{DavieEtAl2008} in response to increasing (from 5 $nA$ \textbf{(Ai)} through to 22 $nA$ \textbf{(Avi)}) injections of climbing-fibre-like synaptic current. The bottom row \textbf{(B)} shows
-  the result of the three-current model simulation in response to increasing injections of climbing-fibre-like somatic current (from 8 $uA/cm2$ \textbf{(Bi)} through to 215 $uA/cm2$ \textbf{(Bvi)}). The structure of the complex spikes, and the manner of their response to increasing amplitudes of injected current, are very similar when comparing the \textsl{in vitro} responses and the output of our model. The models presented here were fitted to the complex spike recorded in \textbf{(Aiv)}.}
-\label{injection_amplitudes}
-\end{figure}
-
-\begin{figure}[!ht]
-\caption{\textbf{Comparison of the input current and complex spike.}
-  This shows 10 ms of the \textbf{(above)} input to the three-current
-  model and \textbf{(below)} complex spike response; the complex spike
-  is the same one shown in Fig.~\ref{injection_amplitudes}Biv. The input departs from $I_0$ at $t=1\mse$.}
-    \label{fig:S1_fig}
-\end{figure}
-
-\begin{figure}[!ht]
-%\includegraphics[width=\linewidth]{JNeuroFigures/figure_2_currents_three_channel_model_monochrome.jpg}
-\caption{\textbf{Currents involved in complex spike formation.} The
-contribution of each current in the three-current model ($I_{\na}$,
-dash; $I_{\k}$, dot; $I_{\leak}$, dash-dot) to
-complex spike generation, \textbf{(A)}. \textbf{(B)} shows the
- voltage trace of the simulated Purkinje cell in the three-current model. The resulting simulated Purkinje cell activity
-following removal of each of the active conductances (\textbf{(C)}: $I_{\na}$
-, \textbf{(D)}: $I_{\k}$). Arrows
-indicate the times of the simulated climbing-fibre-like current
-injections.}
-\label{currents}
-\end{figure}
-
-\begin{figure}[!ht]
-%\includegraphics[width=\linewidth]{JNeuroFigures/figure_4_tau_decay_three_channel_model.jpg}
-\caption{\textbf {Response of simulated complex spikes to increasing
-    durations of injected current.} The time constant describing the
-  decay of the climbing-fibre-like current injection affected the
-  shape of the complex spike waveform. Increasing $\tau_-$ from 4 ms
-  \textbf{(A)}, 7 ms \textbf{(B)}, 11 ms \textbf{(C)} and 18 ms
-  \textbf{(D)} increases the number, but decreases the amplitude, of
-  secondary spikelets within the complex spike. Arrows indicate the times
-  of the simulated climbing-fibre current injections. The shape of
-  these simulated complex spikes are similar to those recorded in
-  Purkinje cells \textit{in vitro}, see Figure 6B in
-  \protect\citet{MonsivaisEtAl2005}.
-\label{fig:injection_durations}}
-\end{figure}
-
-\begin{figure}[!ht]
-%\includegraphics[width=\linewidth]{JNeuroFigures/figure_5_JN.jpg}
-\caption{\textbf{Longer time-base Purkinje cell simulations showing
-    complex spike and simple spike activity.} Two second simulation of
-  the three-current model \textbf{(A)} and the five-current model
-    \textbf{(B)}. Arrows indicate the times of climbing-fibre-like
-    current injections.}
-\label{fig:long_time_base}
-\end{figure}
-
-
-
-\begin{figure}[!ht]
-%\includegraphics[width=\linewidth]{JNeuroFigures/figure_4_tau_decay_five_channel_model.jpg}
-\caption{\textbf{Response of the five-current model to input is similar
-    to the response of the three-current model.} Simulated complex
-  spike waveforms in the five-current model with added calcium and SK
-  channels behave similarly to increasing time constants describing the decay of the
-  injected climbing fibre input as the three-current model. Complex spike waveform simulations when increasing $\tau_-$ from 4 ms
-  \textbf{(A)}, 7 ms \textbf{(B)}, 11 ms \textbf{(C)} and 18 ms
-  \textbf{(D)}. Arrows indicate the times
-  of the simlulated climbing-fibre-like current injections.}
-\label{S2_Fig}
-\end{figure}
-
-
-\begin{figure}[!ht]
-%\includegraphics[width=\linewidth]{JNeuroFigures/figure_6_five_channel.jpg}
-\caption{\textbf{The model is robust to changes in parameter values.}
- Changing the parameter $\bar{g}_\sk=105\msi$ \textbf{(A)} influences simple
-  spike rate and pause duration. Decreasing $\bar{g}_\sk$ from
-  $105\msi$ to 80$\msi$ leads to an increase in background simple spike
-  rate and a reduction in the duration of the post-complex spike pause
-  in simple spike activity \textbf{(B)}, whereas increasing
-  $\bar{g}_\sk$ from $105\msi$ to 130$\msi$ decreases simple spike rate
-  and increases pause duration \textbf{(C)}. Arrows indicate the time
-  of climbing-fibre-like current injection. The model was robust to
-  small changes in other parameter values.}
-\label{S3_Fig}
-\end{figure}
-
-
-
-
-
-
-
-
-\section{Tables}
-%Tables should be inserted at the end of the manuscript. Please build your table directly in LaTeX.Tables provided as jpeg/tiff files will not be accepted. Please note that very large tables (covering several pages) cannot be included in the final PDF for reasons of space. These tables will be published as \href{http://home.frontiersin.org/about/author-guidelines#SupplementaryMaterial}{Supplementary Material} on the online article page at the time of acceptance. The author will be notified during the typesetting of the final article if this is the case. 
-
-
-\begin{table}[!h]
-\begin{center}
-\begin{tikzpicture}
-\node    (C1)                     {C$_1$};
-\node    (C12)[right of=C1] {};
-\node    (C12u)[above = -0.1cm of C12]{$4\alpha$};
-\node    (C12b)[below = -0.1cm of C12]{$\beta$};
-\node    (C2)[right of=C12]   {C$_2$};
-\node    (C23)[right of=C2] {};
-\node    (C23u)[above = -0.1cm of C23]{$3\alpha$};
-\node    (C23b)[below = -0.1cm of C23]{$2\beta$};
-\node    (C3)[right of=C23]   {C$_3$};
-\node    (C34)[right of=C3] {};
-\node    (C34u)[above = -0.1cm of C34]{$2\alpha$};
-\node    (C34b)[below = -0.1cm of C34]{$3\beta$};
-\node    (C4)[right of=C34]   {C$_4$};
-\node    (C45)[right of=C4] {};
-\node    (C45u)[above = -0.1cm of C45]{$\alpha$};
-\node    (C45b)[below = -0.1cm of C45]{$4\beta$};
-\node    (C5)[right of=C45]   {C$_5$};
-\node    (C5O)[right of=C5] {};
-\node    (C5Ou)[above = -0.1cm of C5O]{$\gamma$};
-\node    (C5Ob)[below = -0.1cm of C5O]{$\delta$};
-\node    (O)[right of =C5O]   {O};
-\node    (OB)[right of=O] {};
-\node    (OBu)[above = -0.1cm of OB]{$\epsilon$};
-\node    (OBb)[below = -0.1cm of OB]{$\xi$};
-\node    (B)[right of =OB]   {B};
-
-\node    (C1I1)[below of=C1] {};
-\node    (C1I1l)[left = -0.1cm of C1I1]{\scriptsize{$U$}};
-\node    (C1I1r)[right = -0.1cm of C1I1]{\scriptsize{$D$}};
-\node    (C2I2)[below of=C2] {};
-\node    (C2I2l)[left = -0.1cm of C2I2]{$\frac{U}{a}$};
-\node    (C2I2r)[right = -0.1cm of C2I2]{\scriptsize{$Da$}};
-\node    (C3I3)[below of=C3] {};
-\node    (C3I3l)[left = -0.1cm of C3I3]{$\frac{U}{a^2}$};
-\node    (C3I3r)[right = -0.1cm of C3I3]{\scriptsize{$Da^2$}};
-\node    (C4I4)[below of=C4] {};
-\node    (C4I4l)[left = -0.1cm of C4I4]{$\frac{U}{a^3}$};
-\node    (C4I4r)[right = -0.1cm of C4I4]{\scriptsize{$Da^3$}};
-\node    (C5I5)[below of=C5] {};
-\node    (C5I5l)[left = -0.1cm of C5I5]{$\frac{U}{a^4}$};
-\node    (C5I5r)[right = -0.1cm of C5I5]{\scriptsize{$Da^4$}};
-\node    (OI6)[below of=O] {};
-\node    (OI6l)[left = -0.1cm of OI6]{\scriptsize{$F$}};
-\node    (OI6r)[right = -0.1cm of OI6]{\scriptsize{$N$}};
-
-
-\node    (I1)[below of=C1I1]   {I$_1$};
-\node    (I12)[right of=I1] {};
-\node    (I12u)[above = -0.1cm of I12]{$\alpha a$};
-\node    (I12b)[below = -0.1cm of I12]{$4\beta/a$};
-\node    (I2)[right of=I12]   {I$_2$};
-\node    (I23)[right of=I2] {};
-\node    (I23u)[above = -0.1cm of I23]{$2\alpha a$};
-\node    (I23b)[below = -0.1cm of I23]{$3\beta/a$};
-\node    (I3)[right of=I23]   {I$_3$};
-\node    (I34)[right of=I3] {};
-\node    (I34u)[above = -0.1cm of I34]{$3\alpha a$};
-\node    (I34b)[below = -0.1cm of I34]{$2\beta/a$};
-\node    (I4)[right of=I34]  {I$_4$};
-\node    (I45)[right of=I4] {};
-\node    (I45u)[above = -0.1cm of I45]{$4\alpha a$};
-\node    (I45b)[below = -0.1cm of I45]{$\beta/a$};
-\node    (I5)[right of=I45]  {I$_5$};
-\node    (I56)[right of=I5] {};
-\node    (I56u)[above = -0.1cm of I56]{$\gamma$};
-\node    (I56b)[below = -0.1cm of I56]{$\delta$};
-\node    (I6)[right of=I56]  {I$_6$};
-\draw[ha-ha] (C1) -- (C2);
-\draw[ha-ha] (C2) -- (C3);
-\draw[ha-ha] (C3) -- (C4);
-\draw[ha-ha] (C4) -- (C5);
-\draw[ha-ha] (C5) -- (O);
-\draw[ha-ha] (O) -- (B);
-\draw[ha-ha] (I1) -- (I2);
-\draw[ha-ha] (I2) -- (I3);
-\draw[ha-ha] (I3) -- (I4);
-\draw[ha-ha] (I4) -- (I5);
-\draw[ha-ha] (I5) -- (I6);
-\draw[ha-ha] (I1) -- (C1);
-\draw[ha-ha] (I2) -- (C2);
-\draw[ha-ha] (I3) -- (C3);
-\draw[ha-ha] (I4) -- (C4);
-\draw[ha-ha] (I5) -- (C5);
-\draw[ha-ha] (I6) -- (O);
-\end{tikzpicture}
-\end{center}
-where
-\begin{eqnarray}
-\alpha &=& 150\exp{\left(\frac{V}{20\mv}\right)}\msp\cr
-\beta  &=& 3\exp{\left(-\frac{V}{20\mv}\right)}\msp\cr
-\xi    &=& 0.03\exp{\left(-\frac{V}{25\mv}\right)}\msp
-\end{eqnarray}
-and $\gamma = 150\msp$, $\delta= 40\msp$, $\epsilon = 1.75\msp$, $D=0.005\msp$, $U= 0.5\msp$, $N=0.75\msp$, $F=0.005\msp$ with
-\begin{equation}
-a=[(U/D)/(F/N)]^{1/8}=3.3267
-\end{equation}
-\caption{\textbf{Current through the resurgent sodium channel is
-    described using a Markovian Scheme.} $C_1$-$C_5$ describe
-  sequential closed configurations; $I_1$-$I_6$ describe sequential
-  inactivated states; $O$ represents the open channel configuration,
-  sodium ions will only pass through the channel when it is in this
-  state. $B$ describes a second inactivated state where the channel is
-  likened to being in an open-but-blocked configuration that is
-  non-conducting. Return from this state back to the closed, or
-  inactivated, states must occur through the open ($O$)
-  configuration. The rate constants describing transitions between
-  states; all rate values have been taken from
-  \protect\citet{RamanBean2001}.
-\label{fig:MarkovRNa}}
-\end{table}
-
-
-
-\begin{table}[!ht]
-\centering
-\textbf{Parameter values}
-\begin{center}
-\begin{tabular}{|l l l|}
-\hline
-Parameter & Value & Reference \\ \hline
-$C$&1 $\mu\mathrm{F}\,\mathrm{cm}^{-2}$& \citep{RothHausser2001}\\ \hline
-$\bar{g}_\leak$&$2\msi$& \citep{RappEtAl1994}\\ \hline
-$\bar{g}_\na$&$47.2\msi$&  $\star\dagger$\\ \hline
-$\bar{g}_\k$ &$200\msi$& $\star$ $198\msi$ \citep{AkemannKnopfel2006}\\ \hline
-$\bar{g}_\ca$&$0.3\msi$& $\star$ $0.5\msi$ \citep{MiyashoEtAl2001} \\ \hline
-$\bar{g}_\sk$&$78\msi$& $\star$ $120\msi$ \citep{RubinCleland2006}\\ \hline
-$E_\leak$&$-88\mv$& \citep{MasoliEtAl2015}\\ \hline
-$E_\k$&$-88\mv$& \citep{MasoliEtAl2015}\\ \hline
-$E_\na$&$45\mv$& \citep{DeSchutterBower1994a}\\ \hline
-$E_\ca$&$135\mv$& \citep{DeSchutterBower1994a}\\ \hline
-$[\ca^{2+}]$&$30 nM\cm^{-3}$& \citep{KanoEtAl1995}\\ \hline
-$\delta r$&$0.2\,\mu\mathrm{m}$& \\ \hline
-$I_0$&$62.46\,\mu\mathrm{A}\cm^{-2}$& $\star$\\ \hline
-$I_{\mathrm{cf}}$&$90\,\mu\mathrm{A}\cm^{-2}$& $\ddagger$\citep{StuartHausser1994}\\ \hline
-$\tau_+$&$0.3\mse$&  $\ddagger$\citep{StuartHausser1994}\\ \hline
-$\tau_-$&$4\mse$& $\ddagger$\citep{StuartHausser1994}\\ \hline
-\end{tabular}
-\end{center}
-\caption{Parameter values and their associated references. The
-  parameters marks with a star ($\star$) have been handtuned, where
-  there is a reference it is to the starting value given beside the
-  star. The parameters marked with a double dagger ($\ddagger$) have
-  been chosen to fit the dynamics of the somatic voltage change
-  recorded in response to climbing fibre activity in
-  \protect\citet{DavieEtAl2008}.}
-\label{table1}
-\end{table}
 
 
 
