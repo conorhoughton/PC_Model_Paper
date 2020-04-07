@@ -598,23 +598,23 @@ The error used was the squared distance between the simulated Purkinje
 cell voltage trace in response to climbing fibre input and the typical
 complex spike recorded \textit{in vitro},
 Fig.~\ref{injection_amplitudes}Aiv. Error minimization used the
-downhill simplex algorithm in the \texttt{scipy.optimize.minimize}
-package. The square-error can be unstable for spike-like profiles,
-given that minor changes in the timing of individual spikelet peaks
-can generate huge changes in the square error even if other spike
-features are well described. This could be addressed through a time
-rescaling; here, though, the error minimization was combined with
-hand-tuning. We hand-tuned by running simulations thousands of times
-with different combinations of physiologically plausible parameter
-values to create large grids of simulated complex spike images and
-then selecting the best by eye. Current injections necessary for
-simulating complex spikes were comparable to those necessary to
-reproduce the same complex spike \textit{in vitro}. In the model,
-injections of climbing-fibre-like somatic currents varied from 8
-$\mu$A$/$cm$^2$ through to 215 $\mu$A$/$cm$^2$
-Fig.~\ref{injection_amplitudes}. Assuming a surface area of 500
-$\mu$m$^2$ this would correspond to current injections between 0.4 nA
-and 10.75 nA.
+downhill simplex
+algorithm\footnote{\texttt{scipy.optimize.minimize}}. The square-error
+can be unstable for spike-like profiles, given that minor changes in
+the timing of individual spikelet peaks can generate huge changes in
+the square error even if other spike features are well described. This
+could be addressed through a time rescaling; here, though, the error
+minimization was combined with hand-tuning. We hand-tuned by running
+simulations thousands of times with different combinations of
+physiologically plausible parameter values to create large grids of
+simulated complex spike images and then selecting the best by
+eye. Current injections necessary for simulating complex spikes were
+comparable to those necessary to reproduce the same complex spike
+\textit{in vitro}. In the model, injections of climbing-fibre-like
+somatic currents varied from 8 $\mu$A$/$cm$^2$ through to 215
+$\mu$A$/$cm$^2$ Fig.~\ref{injection_amplitudes}. Assuming a surface
+area of 500 $\mu$m$^2$ this would correspond to current injections
+between 0.4 nA and 10.75 nA.
 
 
 
@@ -631,14 +631,14 @@ an experimental value and noting which parameters were adjusted to
 fit the target complex spike.
 
 
-\begin{figure*}[!ht]
+\begin{figure}[!ht]
 \includegraphics[width=\linewidth]{Figure1.png}
 \caption{\textbf{Simulated complex spike responses to increasing
     amplitudes of injected current}. The top row \textbf{(A)} shows \textsl{in
     vitro} Purkinje cell recordings from \protect\citet{DavieEtAl2008} in response to increasing (from 5 $nA$ \textbf{(Ai)} through to 22 $nA$ \textbf{(Avi)}) injections of climbing-fibre-like synaptic current. The bottom row \textbf{(B)} shows
   the result of the three-current model simulation in response to increasing injections of climbing-fibre-like somatic current (from 8 $uA/cm2$ \textbf{(Bi)} through to 215 $uA/cm2$ \textbf{(Bvi)}). The structure of the complex spikes, and the manner of their response to increasing amplitudes of injected current, are very similar when comparing the \textsl{in vitro} responses and the output of our model. The models presented here were fitted to the complex spike recorded in \textbf{(Aiv)}.}
 \label{injection_amplitudes}
-\end{figure*}
+\end{figure}
 
 \begin{figure}[!ht]
 \includegraphics[width=\linewidth]{Figure2.png}
@@ -669,7 +669,7 @@ plotted together in Fig.~\ref{fig:S1_fig} for the specific complex
 spike seen in Fig.~\ref{injection_amplitudes}Biv.
 
 
-\begin{figure*}[!ht]
+\begin{figure}[!ht]
   \includegraphics[width=\linewidth]{Figure3.png}
 \caption{\textbf{Currents involved in complex spike formation.} The
 contribution of each current in the three-current model ($I_{\na}$,
@@ -681,7 +681,7 @@ following removal of each of the active conductances (\textbf{(C)}: $I_{\na}$
 indicate the times of the simulated climbing-fibre-like current
 injections.}
 \label{currents}
-\end{figure*}
+\end{figure}
 
 
 The contributions of each of the individual currents are outlined in
@@ -698,7 +698,7 @@ generation fails. The combination of active sodium and potassium
 currents is therefore necessary for modelling complex spikes.
 
 
-\begin{figure*}[!ht]
+\begin{figure}[!ht]
   \includegraphics[width=\linewidth]{Figure4.png}
 %\includegraphics[width=\linewidth]{JNeuroFigures/figure_4_tau_decay_three_channel_model.jpg}
 \caption{\textbf {Response of simulated complex spikes to increasing
@@ -713,7 +713,7 @@ currents is therefore necessary for modelling complex spikes.
   Purkinje cells \textit{in vitro}, see Figure 6B in
   \protect\citet{MonsivaisEtAl2005}.
 \label{fig:injection_durations}}
-\end{figure*}
+\end{figure}
 
 
 It is possible to increase the number of spikelets generated in the
@@ -741,7 +741,7 @@ similar to the Purkinje cell responses described experimentally
 
 
 
-\begin{figure*}[!ht]
+\begin{figure}[!ht]
   \includegraphics[width=\linewidth]{Figure5.png}
 %\includegraphics[width=\linewidth]{JNeuroFigures/figure_5_JN.jpg}
 \caption{\textbf{Longer time-base Purkinje cell simulations showing
@@ -750,7 +750,7 @@ similar to the Purkinje cell responses described experimentally
     \textbf{(B)}. Arrows indicate the times of climbing-fibre-like
     current injections.}
 \label{fig:long_time_base}
-\end{figure*}
+\end{figure}
 
 In addition to generating complex spikes, the three-current model also
 produces simple spikes, Fig.~\ref{fig:long_time_base}A. A distinctive
@@ -767,7 +767,7 @@ calcium-gated potassium channel.
 
 
 
-\begin{figure*}[!ht]
+\begin{figure}[!ht]
   \includegraphics[width=\linewidth]{Figure6.png}
 %\includegraphics[width=\linewidth]{JNeuroFigures/figure_4_tau_decay_five_channel_model.jpg}
 \caption{\textbf{Response of the five-current model to input is similar
@@ -779,7 +779,7 @@ calcium-gated potassium channel.
   \textbf{(D)}. Arrows indicate the times
   of the simlulated climbing-fibre-like current injections.}
 \label{S2_Fig}
-\end{figure*}
+\end{figure}
 
 
 The baseline simple spike rate in the five-current model is $\sim
@@ -801,7 +801,7 @@ Fig.~\ref{S2_Fig}.
 
 
 
-\begin{figure*}[!ht]
+\begin{figure}[!ht]
   \includegraphics[width=\linewidth]{Figure7.png}
 %\includegraphics[width=\linewidth]{JNeuroFigures/figure_6_five_channel.jpg}
 \caption{\textbf{The model is robust to changes in parameter values.}
@@ -815,7 +815,7 @@ Fig.~\ref{S2_Fig}.
   of climbing-fibre-like current injection. The model was robust to
   small changes in other parameter values.}
 \label{S3_Fig}
-\end{figure*}
+\end{figure}
 
 
 
