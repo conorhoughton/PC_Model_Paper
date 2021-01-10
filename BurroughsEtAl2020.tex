@@ -126,15 +126,14 @@ variable waveform. Although they are critical to cerebellar operation
 a simple model that describes the complex spike waveform is
 lacking. Here, a novel single-compartment model of Purkinje cell
 electrodynamics is presented. The simpler version of this model, with
-two active conductances and a leak channel, can simulate the features typical of complex
-spikes recorded \textit{in vitro}. If calcium dynamics are also
-included, the model can capture the pause in simple spike activity
-that occurs after complex spike events. Together, these models provide
-an insight into the mechanisms behind complex spike spikelet
-generation, waveform variability and their interactions with
-simple spike activity.
-\keywords{Purkinje cell, cerebellum, mathematical model, simulation, complex spike}
-\PACS{}
+two active conductances and a leak channel, can simulate the features
+typical of complex spikes recorded \textit{in vitro}. If calcium
+dynamics are also included, the model can also simulate the pause in
+simple spike activity that occurs after complex spikes. Together,
+these models provide an insight into the mechanisms behind complex
+spike spikelet generation, waveform variability and their interactions
+with simple spike activity.  \keywords{Purkinje cell, cerebellum,
+  mathematical model, simulation, complex spike} \PACS{}
 
 \end{abstract}
 
@@ -216,7 +215,7 @@ simulation the hypothesis that a restricted number of channel-dynamics
 can explain complex spike waveform. Two models are presented: a
 three-current model that shows that three channels, a leak channel and
 two active channels, are sufficient to simulate the complex spike
-waveform and a five-current model, which demonstrates how some of the
+waveform and a five-current model which demonstrates how some of the
 interactions between simple spikes and complex spikes can be explained
 by calcium dynamics.
 
@@ -236,9 +235,9 @@ simple spike rate and complex spike waveform described in
 
 %perhaps do a general paragraph and note that the many choices made here will be reflected on in the discussion
 
-In this paper two single-compartment models of the Purkinje
-cell somatic voltage dynamics are presented. The three-current model has
-a leak channel and two voltage-gated channels:
+In this paper two single-compartment models of the Purkinje cell
+somatic voltage dynamics are presented. The three-current model has a
+leak channel and two voltage-gated channels:
 \begin{equation}
 \label{eq:membrane_voltage_3}
 C\frac{dV}{dt} =I_\leak+I_{\na}+I_\k+I_{\mathrm{e}}
@@ -257,11 +256,11 @@ dendrites. $I_{\na}$ and $I_{\k}$ stand for the sodium current and the
 potassium current; the sodium current includes the resurgent dynamics
 that are typical of Purkinje cells
 \citep{RamanBean1997,RamanBean2001,KhaliqEtAl2003,KhaliqRaman2006}. Since
-complex spikes are principally sodium spikes \citep{StuartHausser1994},
-this model contains the least possible number of currents; the key
-contribution of this model is to demonstrate that the sodium
-resurgence found in Purkinje cells is sufficient as a mechanism for
-producing the complex spike waveform.
+complex spikes are principally sodium spikes
+\citep{StuartHausser1994}, this model contains the least possible
+number of currents; the key contribution of this model is to
+demonstrate that the sodium resurgence found in Purkinje cells is
+sufficient as a mechanism for producing the complex spike waveform.
 
 The second model includes some of the effects of calcium dynamics and
 will be referred to as the five-current model. It has
@@ -276,8 +275,8 @@ channel, with current $I_\sk$. These two additional currents are also
 described below; they were selected because they are a prominent
 channel type in Purkinje cells and the calcium dynamics has timescales
 in the range required to produce the refractory period after a complex
-spike. Purkinje cell channels that are not
-included in either model are described in the Discussion.
+spike. Purkinje cell channels that are not included in either model
+are described in the Discussion.
 
 \subsection{Input currents}
 
@@ -298,7 +297,8 @@ is initiated in the proximal axon \citep{StuartHausser1994,DavieEtAl2008,PalmerE
 
 The current that the Purkinje cell soma receives following climbing
 fibre activation from the dendrite is modelled as the difference of
-two decaying exponentials and fitted to mimic the synaptic input given in \citet{DavieEtAl2008}. For a complex spike at $t=0$ this is:
+two decaying exponentials and fitted to mimic the synaptic input given
+in \citet{DavieEtAl2008}. For a complex spike at $t=0$ this is:
 \begin{equation}
 \label{eq:I_synapse}
 I_{\mathrm{e}} = I_0+I_{\mathrm{cf}}\frac{e^{-t/\tau_-}-e^{-t/\tau_+}}{e^{-t_0/\tau_-}-e^{-t_0/\tau_+}}
@@ -367,7 +367,6 @@ both the three-current and five-current model.
 \node    (OI6l)[left = -0.1cm of OI6]{\scriptsize{$F$}};
 \node    (OI6r)[right = -0.1cm of OI6]{\scriptsize{$N$}};
 
-
 \node    (I1)[below of=C1I1]   {I$_1$};
 \node    (I12)[right of=I1] {};
 \node    (I12u)[above = -0.1cm of I12]{$\alpha a$};
@@ -409,15 +408,15 @@ both the three-current and five-current model.
 \end{tikzpicture}
 \end{center}
 where
-\begin{eqnarray}
+\begin{eqnarray*}
 \alpha &=& 150\exp{\left(\frac{V}{20\mv}\right)}\msp\cr
 \beta  &=& 3\exp{\left(-\frac{V}{20\mv}\right)}\msp\cr
 \xi    &=& 0.03\exp{\left(-\frac{V}{25\mv}\right)}\msp
-\end{eqnarray}
+\end{eqnarray*}
 and $\gamma = 150\msp$, $\delta= 40\msp$, $\epsilon = 1.75\msp$, $D=0.005\msp$, $U= 0.5\msp$, $N=0.75\msp$, $F=0.005\msp$ with
-\begin{equation}
+$$
 a=[(U/D)/(F/N)]^{1/8}=3.3267
-\end{equation}
+$$
 \caption{\textbf{Current through the resurgent sodium channel is
     described using a Markovian Scheme.} $C_1$-$C_5$ describe
   sequential closed configurations; $I_1$-$I_6$ describe sequential
@@ -435,15 +434,15 @@ a=[(U/D)/(F/N)]^{1/8}=3.3267
 
 
 
-The current through the sodium channel was modelled using a Markovian scheme developed by \citet{RamanBean2001}, see
-Table~\ref{fig:MarkovRNa}. This scheme models the dynamics of both the transient and resurgent gates. The current is
+The current through the sodium channel was modelled using a Markovian
+scheme developed by \citet{RamanBean2001}, see
+Table~\ref{fig:MarkovRNa}. This scheme models the dynamics of both the
+transient and resurgent gates. The current is
 \begin{equation}
 \label{eq:I_RNa}
 I_{\na} = \bar{g}_\na o (E_\na-V)
 \end{equation}
 $o$ is the fraction of gates in the open state $O$, as described in Table~\ref{fig:MarkovRNa} and $\bar{g}_\na=115\msi$.
-
-% AB 20/08/2019 Change kHz to ms^-1
 
 The potassium current has a fast potassium channel of the K\textsubscript{v}3.3 subtype and is modelled as in
 \citet{MasoliEtAl2015}:
@@ -477,8 +476,6 @@ with $\bar{g}_\ca= 0.3\msi$ and $E_\ca = 135\mv$. $q$ is the proportion of gates
   \exp{\left(-\frac{V}{12.5\mv}\right)}}\mathrm{ms}^{-1}\cr \beta_{q} &=
 \frac{35}{ 1 + \exp{\left(\frac{V}{14.5\mv}\right)}}\mathrm{ms}^{-1}
 \end{align}
-
-% AB 20/08/2019 Change kHz to ms^-1
 
 The intracellular calcium concentration dynamics are taken from
 \citet{SterrattEtAl2012,KochSegev1998}
@@ -524,8 +521,6 @@ w_{\infty}   &= \frac{0.81}{1 + \exp{(-(\log{\{[\ca^{2+}]/(1\,\mathrm{nM})\}}+0.
 
 \subsection{Implementation and model fitting}
 
-
-
 \begin{table*}[!t]
 \centering
 \textbf{Parameter values}
@@ -561,7 +556,6 @@ $\tau_-$&$4\mse$& $\ddagger$\citep{StuartHausser1994}\\ \hline
 \label{table1}
 \end{table*}
 
-
 Parameter values are given in Table~\ref{table1}. Most parameter
 values used in this modelling study were taken from experimental
 studies. However, some parameters that are not easily measured
@@ -569,14 +563,17 @@ experimentally are optimised here so that the complex spike waveform
 shape had the best fit to complex spikes recorded experimentally
 \textit{in vitro}, see Figure 1D in \citet{DavieEtAl2008}.
 
-Simulations were run in Python 2.7, OS on a CPU. Models were simulated
-as ordinary differential equations and integration was performed
+Simulations were run in Python on a CPU. Models were simulated as
+ordinary differential equations and integration was performed
 explicitly using the \texttt{scipy.integrate.ode} package using the
 \texttt{BDF} option suitable for stiff problems, this implements a
 backward differentiation formula with a Jacobian estimated by finite
-differences \citep{ByrneHindmarsh1975}. The timestep, $dt$, was chosen
-as 0.0025 ms. One second of Purkinje cell activity can be simulated in
-1 minute 20 seconds.
+differences \citep{ByrneHindmarsh1975}. The sum state variable in the
+Markov scheme describing the resurgent sodium current
+(Table~\ref{fig:MarkovRNa} is one, this should be preserved by the
+dynamics and in the numerical scheme this sum is normalized every
+0.025 ms. One second of Purkinje cell activity can be simulated in 1
+minute 20 seconds.
 
 Optimization was performed using a mixture of error minimization and
 hand-tuning techniques. In order to have a definite
@@ -616,8 +613,6 @@ $\mu$A$/$cm$^2$ Fig.~\ref{injection_amplitudes}. Assuming a surface
 area of 500 $\mu$m$^2$ this would correspond to current injections
 between 0.4 nA and 10.75 nA.
 
-
-
 \section{Results}
 
 The three-current and five-current model were tested. After fitting
@@ -629,6 +624,11 @@ complex spikes. Table~\ref{table1} gives a list of the model
 parameters, giving the source for parameters that have been fixed to
 an experimental value and noting which parameters were adjusted to
 fit the target complex spike.
+
+\begin{figure}[!ht]
+  \include{spikes}
+  \caption{\textbf{Simple spikes in the three- and five-current models}.}
+ \end{figure}
 
 
 \begin{figure}[!ht]
