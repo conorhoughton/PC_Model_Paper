@@ -1,0 +1,269 @@
+
+#Amelia Burroughs
+
+import numpy as np
+from scipy.integrate import ode
+import matplotlib.pyplot as plt
+from Units import *
+from Parameters_2 import *
+#import matplotlib.lines as l
+import time
+import datetime
+from general import *
+
+i_h_trace=[]
+i_tna_trace=[]
+i_rna_trace=[]
+i_k_trace=[]
+i_kslow_trace=[]
+i_kdr_trace=[]
+i_sk_trace=[]
+i_ca_trace=[]
+i_leak_trace=[]
+ca_trace=[]
+ca_conc_trace=[]
+i_c_trace = []
+ca_c_trace = []
+
+#print "cf_a[0]/uA: "+str(cf_a[0]/uA)
+
+
+class Somatic_voltage:
+
+    def __init__(self,c,g_rna,g_k,g_leak,e_na,e_k,e_leak,i_e,v_initial):
+
+        self.c=c
+        self.g_rna=g_rna
+        self.g_k=g_k
+        self.g_leak=g_leak
+        self.e_na=e_na
+        self.e_k=e_k
+        self.e_leak=e_leak
+        self.i_e=i_e
+
+        self.v_initial=v_initial
+
+    def derivative(self,k_n,rna_o,v_soma,t):
+
+        i_rna=-self.g_rna*rna_o*(v_soma-self.e_na)
+        i_k =-self.g_k *pow(k_n,4)*(v_soma-self.e_k)
+        i_leak=-self.g_leak*(v_soma-self.e_leak)
+
+        
+ #       i_rna_trace.append(i_rna)
+ #       i_k_trace.append(i_k)
+ #       i_leak_trace.append(i_leak)
+    
+        
+        soma_v = (self.i_e(t)+i_rna+i_k+i_leak)/self.c
+
+        return soma_v, self.i_e(t)
+
+class All_derivatives:
+    
+    def __init__(self,somatic_voltage,rna_states,rate_k):
+
+        self.somatic_voltage=somatic_voltage
+        self.rna_states=rna_states
+        self.rate_k=rate_k
+        self.derivative=np.zeros(15)
+        
+    def __call__(self,t,y):
+
+        v_soma=y[0]
+        k_n   =y[1]
+        rna_o =y[7]
+
+        v_soma_dot,i_electrode=self.somatic_voltage.derivative(k_n,rna_o,v_soma,t)
+        
+        self.derivative[0]=v_soma_dot
+        self.derivative[1]=self.rate_k.alpha(v_soma)*(1-k_n)-self.rate_k.beta(v_soma)*k_n
+        self.derivative[2:15]=self.rna_states.all_dots(y[2:15],v_soma)
+
+        return self.derivative
+
+def normalize(y):
+
+    total=0
+
+    for i in range(2,15):
+        total+=y[i]
+
+    for i in range(2,15):
+        y[i]/=total
+
+    return y
+
+
+
+def run(i_e):
+
+    rate_k=Rate_k()
+
+    rna_states=Rna_states(
+        full_rna_alpha,
+        full_rna_beta,
+        full_rna_gamma,
+        full_rna_delta,
+        full_rna_epsilon,
+        full_rna_xi,
+        full_rna_d,
+        full_rna_u,
+        full_rna_n,
+        full_rna_f,
+        v_initial
+    )
+
+
+    somatic_voltage=Somatic_voltage(c_soma,g_rna,g_k,g_leak,e_na,e_k,e_leak,i_e,v_initial)
+
+    f=All_derivatives(somatic_voltage,rna_states,rate_k)
+
+    y_initial=[-5.344073669890826717e-02,1.441684886714647840e-01,5.553627458050509891e-02,5.305202400952947761e-02,1.901904131873100728e-02,3.048454586099551625e-03,2.007603195616365068e-04,8.190732003812732295e-04,5.247347808465072962e-03,2.677586644595380980e-05,5.286995804056625651e-05,2.682413299921355683e-04,4.103201902312544891e-03,1.807750412253448236e-01,6.778508938945909668e-01]
+
+
+    t0=0
+    t1=t_run
+
+
+    integrator = ode(f).set_integrator('vode', method='bdf', with_jacobian=False)
+    integrator.set_initial_value(y_initial, t0)
+
+    norm_n=10
+    print_n=100
+
+    norm_c=1
+    print_c=1
+
+    time_base = []
+    voltage_trace = []
+    sk_w_trace = []
+    ca_conc_trace = []
+
+    while integrator.successful() and integrator.t < t1:
+
+        integrator.integrate(integrator.t+norm_n*dt)
+
+
+        y=integrator.y
+        y=normalize(y)
+        integrator.set_initial_value(y,integrator.t)
+    
+
+        if print_c<=1:
+            print_c=print_n
+            time_base.append(integrator.t)
+            voltage_trace.append(integrator.y[0])
+
+        print_c-=norm_n
+
+    utc_datetime = datetime.datetime.utcnow()
+    formated_string = utc_datetime.strftime("%Y-%m-%d-%H%M%S")
+
+    file_name="results2/2ch_"
+
+    parameter_file_out=open(file_name+formated_string+"_parameter_file.txt",'w')
+    parameter_file_out.write("g_rna,g_k,v_r,full_rna_epsilon,background_current\n")
+    parameter_file_out.write(str(g_rna)+"\n")
+    parameter_file_out.write(str(g_k)+"\n")
+    parameter_file_out.write(str(v_r)+"\n")
+    parameter_file_out.write(str(full_rna_epsilon)+"\n")
+    parameter_file_out.write(str(background_current)+"\n")
+    parameter_file_out.close()
+
+#    np.savetxt(file_name+formated_string+'_climbing_fibre_input.dat', np.column_stack((cs_times,cf_a)))
+
+    np.savetxt(file_name+formated_string+'_voltage.dat', np.column_stack((time_base,voltage_trace)))
+
+#    peak_times,peak_amplitudes=find_peaks(voltage_trace,time_base,0.06,0.08)
+#    print(peak_times)
+
+    # time1=0.055
+    # time2=0.085
+
+    # index1=0
+    # while time_base[index1]<time1:
+    #     index1+=1
+    # index2=index1+1
+    # while time_base[index2]<time2:
+    #     index2+=1
+
+       
+    # these_voltages=voltage_trace[index1:index2]
+    # min_v=min(these_voltages)
+    # max_v=max(these_voltages)
+
+    # for v in these_voltages:
+    #     print((v-min_v)/(max_v-min_v),end=' ')
+    # print()
+
+
+    print(count_peaks(voltage_trace,time_base,0.02,1.0))
+
+    return file_name+formated_string
+
+utc_datetime = datetime.datetime.utcnow()
+formated_string = utc_datetime.strftime("%Y-%m-%d-%H%M")
+
+file_name="results/2ch_log_"+formated_string+".txt"
+
+
+#cf_a_values=[28,50,59,90,147,190]
+cf_a_values=list(range(28,191))
+i0= 62.46*uA
+
+# for cf_a_value in cf_a_values:
+#     cf_a=[cf_a_value*uA]*len(cs_times)
+#     print(cf_a)
+#     i_e=Electrode(cf_a,i0)
+#     run_name=run(i_e)
+
+#     with open(file_name, "a") as myfile:
+#         myfile.write(run_name)
+#         myfile.write("\n")
+
+#multiplier1=0.1
+#multiplier2=0.09
+#multiplier3=0.1
+
+#multiplier = 0.65
+
+#multiplier4 = 0.3*multiplier
+#multiplier5 = 0.8*multiplier
+
+
+#multiplier1=0.25
+#multiplier2=0.5
+#multiplier3=0.5
+
+#multiplier4 = 0.5005
+#multiplier5 = 0.5005
+
+
+
+multiplier1=1.0
+multiplier2=1.0
+multiplier3=1.0
+multiplier4=1.0
+multiplier5=1.0
+
+i0= multiplier2*61*uA
+
+g_leak=multiplier3*2.0*mS
+
+g_rna*=multiplier4
+g_k  *=multiplier5
+
+#cf_values = [x*uA for x in range(8,215,3)]
+
+cf_0=100*uA
+
+cf_a=[multiplier1*cf_0]
+
+i_e=Electrode(cf_a,i0)
+    
+run(i_e)
+
+
+
+    
