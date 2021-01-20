@@ -69,7 +69,7 @@
 %%% some SI units
 \newcommand{\mv}{\,\mathrm{mV}}
 %\newcommand{\msi}{\,\mathrm{mS \slash cm^{2}}}
-\newcommand{\msi}{\,\mathrm{mS cm^{-2}}}
+\newcommand{\msi}{\,\mathrm{mS\,cm^{-2}}}
 \newcommand{\mse}{\,\mathrm{ms}}
 \newcommand{\msp}{\,\mathrm{ms^{-1}}}
 \newcommand{\khz}{\,\mathrm{kHz}}
@@ -525,25 +525,25 @@ w_{\infty}   &= \frac{0.81}{1 + \exp{(-(\log{\{[\ca^{2+}]/(1\,\mathrm{nM})\}}+0.
 \centering
 \textbf{Parameter values}
 \begin{center}
-\begin{tabular}{|l l l|}
+  \begin{tabular}{|l l l l l|}
 \hline
-Parameter & Value & Reference \\ \hline
-$C$&1 $\mu\mathrm{F}\,\mathrm{cm}^{-2}$& \citep{RothHausser2001}\\ \hline
-$\bar{g}_\leak$&$2\msi$& \citep{RappEtAl1994}\\ \hline
-$\bar{g}_\na$&$47.2\msi$&  $\star\dagger$\\ \hline
-$\bar{g}_\k$ &$200\msi$& $\star$ $198\msi$ \citep{AkemannKnopfel2006}\\ \hline
-$\bar{g}_\ca$&$0.3\msi$& $\star$ $0.5\msi$ \citep{MiyashoEtAl2001} \\ \hline
-$\bar{g}_\sk$&$78\msi$& $\star$ $120\msi$ \citep{RubinCleland2006}\\ \hline
-$E_\leak$&$-88\mv$& \citep{MasoliEtAl2015}\\ \hline
-$E_\k$&$-88\mv$& \citep{MasoliEtAl2015}\\ \hline
-$E_\na$&$45\mv$& \citep{DeSchutterBower1994a}\\ \hline
-$E_\ca$&$135\mv$& \citep{DeSchutterBower1994a}\\ \hline
-$[\ca^{2+}]$&$30 nM\cm^{-3}$& \citep{KanoEtAl1995}\\ \hline
-$\delta r$&$0.2\,\mu\mathrm{m}$& \\ \hline
-$I_0$&$62.46\,\mu\mathrm{A}\cm^{-2}$& $\star$\\ \hline
-$I_{\mathrm{cf}}$&$90\,\mu\mathrm{A}\cm^{-2}$& $\ddagger$\citep{StuartHausser1994}\\ \hline
-$\tau_+$&$0.3\mse$&  $\ddagger$\citep{StuartHausser1994}\\ \hline
-$\tau_-$&$4\mse$& $\ddagger$\citep{StuartHausser1994}\\ \hline
+parameter & both & three-current & five-current &reference \\ \hline
+$C$&1 $\mathrm{\mu F}\,\mathrm{cm}^{-2}$&&& \citep{RothHausser2001}\\ \hline
+$\bar{g}_\leak$&$2\msi$&&& \citep{RappEtAl1994}\\ \hline
+$\bar{g}_\na$&&$105\msi$&$140\msi$&  $\star$\\ \hline
+$\bar{g}_\k$&&$15\msi$&$25\msi$& $\star$  \\ \hline
+$\bar{g}_\ca$&&& $0.5\msi$& \citep{MiyashoEtAl2001} \\ \hline
+$\bar{g}_\sk$&&&$120\msi$& \citep{RubinCleland2006}\\ \hline
+$E_\leak$&$-88\mv$&&& \citep{MasoliEtAl2015}\\ \hline
+$E_\k$&$-88\mv$&&& \citep{MasoliEtAl2015}\\ \hline
+$E_\na$&$45\mv$&&& \citep{DeSchutterBower1994a}\\ \hline
+$E_\ca$&&&$135\mv$& \citep{DeSchutterBower1994a}\\ \hline
+$[\ca^{2+}]$&&&$30\, \mathrm{nM}\cm^{-3}$& \citep{KanoEtAl1995}\\ \hline
+$\delta r$&&&$0.2\,\mu\mathrm{m}$& \\ \hline
+$I_0$&&$62\,\mu\mathrm{A}\cm^{-2}$&$71\,\mu\mathrm{A}\cm^{-2}$& $\star$\\ \hline
+$I_{\mathrm{cf}}$&&$8-215\,\mu\mathrm{A}\cm^{-2}$&$8-215\,\mu\mathrm{A}\cm^{-2}$& $\ddagger$\citep{StuartHausser1994}\\ \hline
+$\tau_+$&$0.3\mse$&&&  $\ddagger$\citep{StuartHausser1994}\\ \hline
+$\tau_-$&$4\mse$&&& $\ddagger$\citep{StuartHausser1994}\\ \hline
 \end{tabular}
 \end{center}
 \caption{Parameter values and their associated references. The
@@ -631,6 +631,7 @@ Fig.~\ref{fig:fi_curve} gives the fI-curves; the rapidity with which
 firing rate increases is suprprising, but this sensitivity to current
 input is a property of Purkinje cells \cite{DeSchutterBower1994a}.
 
+%this figure is DONE
 \begin{figure}[!ht]
   \include{spikes}
   \caption{\textbf{Simple spike properties in the three- and
@@ -644,10 +645,10 @@ input is a property of Purkinje cells \cite{DeSchutterBower1994a}.
     \begin{tabular}{|l l l|}
       \hline
       Property & Three-current (\textbf{A}) & Five-current (\textbf{B})\\ \hline
-      $\delta t_1$ (ms)& 1.85&1.43\\
-      max (mV)&16.0&17.1\\
-      min (mV)&-58.0 &-60.5\\
-      $\delta t_2$ (ms)&4.17&3.64\\
+      $\delta t_1$ (ms)& 1.85&1.4\\
+      max (mV)&16.0&20.26\\
+      min (mV)&-58.0 &-60.81\\
+      $\delta t_2$ (ms)&4.17&3.08\\
       \hline
     \end{tabular}
     \end{center}

@@ -1,0 +1,30 @@
+
+
+because of a typo "4p" refers to the model with four active channels, ie the five-current model, for convenience "2p" is used to mean the three-current model
+
+new calculation
+
+4p peak start time is
+
+for the 2p the plot starts at 40 when the spike starts at 0.04205 
+
+so there is 0.00205 between the start of the plot and the spike start
+
+0.0931-0.00205 = 0.09105 so that's the start and we should take that away from times and multiply by 1000 -> we do that to 4p_details to get the important times
+
+
+
+
+old calculation
+___________
+
+4p_details has the details for the 4p model
+
+
+4p peak 0.126425
+2p peak 0.042625
+
+delta peak 0.126245-0.042625 = 0.0836
+
+2p range 40 - 60
+so 4p range 123.6-133.6
