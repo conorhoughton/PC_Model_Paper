@@ -539,8 +539,8 @@ $E_\k$&$-88\mv$&&& \citep{MasoliEtAl2015}\\ \hline
 $E_\na$&$45\mv$&&& \citep{DeSchutterBower1994a}\\ \hline
 $E_\ca$&&&$135\mv$& \citep{DeSchutterBower1994a}\\ \hline
 $[\ca^{2+}]$&&&$30\, \mathrm{nM}\cm^{-3}$& \citep{KanoEtAl1995}\\ \hline
-$\delta r$&&&$0.2\,\mu\mathrm{m}$& \\ \hline
-$I_0$&&$62\,\mu\mathrm{A}\cm^{-2}$&$71\,\mu\mathrm{A}\cm^{-2}$& $\star$\\ \hline
+$\delta r$&&&$0.15\,\mu\mathrm{m}$& \\ \hline
+$I_0$&&$63\,\mu\mathrm{A}\cm^{-2}$&$98\,\mu\mathrm{A}\cm^{-2}$& $\star$\\ \hline
 $I_{\mathrm{cf}}$&&$8-215\,\mu\mathrm{A}\cm^{-2}$&$8-215\,\mu\mathrm{A}\cm^{-2}$& $\ddagger$\citep{StuartHausser1994}\\ \hline
 $\tau_+$&$0.3\mse$&&&  $\ddagger$\citep{StuartHausser1994}\\ \hline
 $\tau_-$&$4\mse$&&& $\ddagger$\citep{StuartHausser1994}\\ \hline
@@ -631,7 +631,7 @@ Fig.~\ref{fig:fi_curve} gives the fI-curves; the rapidity with which
 firing rate increases is suprprising, but this sensitivity to current
 input is a property of Purkinje cells \cite{DeSchutterBower1994a}.
 
-%this figure is DONE
+%this figure is DONE - DO NOT CHANGE IT AGAIN
 \begin{figure}[!ht]
   \include{spikes}
   \caption{\textbf{Simple spike properties in the three- and
@@ -645,10 +645,10 @@ input is a property of Purkinje cells \cite{DeSchutterBower1994a}.
     \begin{tabular}{|l l l|}
       \hline
       Property & Three-current (\textbf{A}) & Five-current (\textbf{B})\\ \hline
-      $\delta t_1$ (ms)& 1.85&1.4\\
-      max (mV)&16.0&20.26\\
-      min (mV)&-58.0 &-60.81\\
-      $\delta t_2$ (ms)&4.17&3.08\\
+      $\delta t_1$ (ms)& 1.85&1.445\\
+      max (mV)&16.0&13.37\\
+      min (mV)&-58.0 &-58.3\\
+      $\delta t_2$ (ms)&4.17&4.45\\
       \hline
     \end{tabular}
     \end{center}
@@ -657,7 +657,7 @@ input is a property of Purkinje cells \cite{DeSchutterBower1994a}.
 
 \begin{figure}[!ht]
   \include{fi_curves}
-  \caption{\textbf{Firing rate and input current for simple spiknig in
+  \caption{\textbf{Firing rate and input current for simple spiking in
       the three- and five-current models}. The firing rate for simple
     spikes is plotted as a function of input current; Assuming a
     surface area of 500 $\mu$m$^2$ a range of 5 $\mu$A$/$cm$^2$ would
@@ -667,7 +667,7 @@ input is a property of Purkinje cells \cite{DeSchutterBower1994a}.
 \end{figure}
 
 
-
+%doesn't need to be changed.
 \begin{figure}[!ht]
 \includegraphics[width=\linewidth]{Figure1.png}
 \caption{\textbf{Simulated complex spike responses to increasing
@@ -687,12 +687,14 @@ input is a property of Purkinje cells \cite{DeSchutterBower1994a}.
 \label{injection_amplitudes}
 \end{figure}
 
+%doesn't need to be changed.
 \begin{figure}[!ht]
 \includegraphics[width=\linewidth]{Figure2.png}
 \caption{\textbf{Comparison of the input current and complex spike.}
   This shows 10 ms of the \textbf{(above)} input to the three-current
   model and \textbf{(below)} complex spike response; the complex spike
-  is the same one shown in Fig.~\ref{injection_amplitudes}Biv. The input departs from $I_0$ at $t=1\mse$.}
+  is the same one shown in Fig.~\ref{injection_amplitudes}Biv. The
+  input departs from $I_0$ at $t=1\mse$.}
     \label{fig:S1_fig}
 \end{figure}
 
@@ -715,7 +717,7 @@ relationship between the complex spike and the input current these are
 plotted together in Fig.~\ref{fig:S1_fig} for the specific complex
 spike seen in Fig.~\ref{injection_amplitudes}Biv.
 
-
+%doesn't need to be changed.
 \begin{figure}[!ht]
   \includegraphics[width=\linewidth]{Figure3.png}
 \caption{\textbf{Currents involved in complex spike formation.} The
@@ -755,7 +757,7 @@ size of the sodium current, Fig.~\ref{fig:ss_v_grna}.
 
 
 
-
+%doesn't need to be changed
 \begin{figure}[!ht]
   \includegraphics[width=\linewidth]{Figure4.png}
 %\includegraphics[width=\linewidth]{JNeuroFigures/figure_4_tau_decay_three_channel_model.jpg}
@@ -800,13 +802,22 @@ similar to the Purkinje cell responses described experimentally
 
 
 \begin{figure}[!ht]
-  \includegraphics[width=\linewidth]{Figure5.png}
-%\includegraphics[width=\linewidth]{JNeuroFigures/figure_5_JN.jpg}
+\include{cs}
 \caption{\textbf{Longer time-base Purkinje cell simulations showing
     complex spike and simple spike activity.} Two second simulation of
   the three-current model \textbf{(A)} and the five-current model
     \textbf{(B)}. Arrows indicate the times of climbing-fibre-like
-    current injections.}
+    current injections.
+}
+  \begin{center}
+    \begin{tabular}{|l l l|}
+      \hline
+      Property & Three-current (\textbf{A}) & Five-current (\textbf{B})\\ \hline
+      $\delta t_1$ (ms)& 13.425&15.43\\
+      $\delta t_2$ (ms)&28.92&48.65\\
+      \hline
+    \end{tabular}
+    \end{center}
 \label{fig:long_time_base}
 \end{figure}
 

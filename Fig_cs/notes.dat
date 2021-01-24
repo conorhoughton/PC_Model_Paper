@@ -1,0 +1,79 @@
+
+3 current
+
+first spike after 0.1
+0.11055
+so put the complex spike at 0.12555
+
+cs
+starttime 0.12564999999999024
+endtime 0.13907499999998876
+startv -0.05135414356434075
+vmax 0.022290598653067265
+tmax 0.12624999999999018
+vmin -0.05250443668722322
+tmin 0.1396749999999887
+vnewmax -0.05157053596428705
+tnewmax 0.1424749999999884
+
+next ss
+start_time 0.16799999999998558
+end_time 0.1696499999999854
+start_v -0.04542586500390514
+v_max 0.012520079102186448
+t_max 0.1685999999999855
+v_min -0.05728019052018345
+t_min 0.17029999999998532
+v_new_max -0.052718643072715385
+t_new_max 0.17544999999998476
+
+5 current
+
+first spike at 0.1
+0.112225
+so put complex spike at 0.127225
+
+cs
+start_time 0.12732499999999006
+end_time 0.14274999999998836
+start_v -0.051147959120436244
+v_max 0.02187878426031174
+t_max 0.12784999999999
+v_min -0.05538143212433983
+t_min 0.1432499999999883
+v_new_max -0.053747656067796065
+t_new_max 0.14539999999998807
+
+next ss
+start_time 0.191399999999983
+end_time 0.19282499999998284
+start_v -0.046382950687320304
+v_max 0.01878004790356662
+t_max 0.19189999999998295
+v_min -0.059409691912401835
+t_min 0.1932499999999828
+v_new_max -0.05292675194653853
+t_new_max 0.19714999999998237                                                                                        
+
+___________________________
+
+
+in figure_3.gp starts at 78.3245 and the cs spike start is 125.65 which is an offset of 47.3255
+
+in figure_5.gp the cs starts at 127.325 so the figure should start at 79.9995
+
+___________________
+
+
+3 current
+
+delta_t_1 = 13.425
+delta_t_2 = 28.925
+
+5 current
+
+delta_t_1 = 15.43
+delta_t_2 = 48.65
+
+
+
