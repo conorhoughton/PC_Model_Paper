@@ -68,7 +68,7 @@ offset=0.03
 plt.xlabel('100 ms', fontsize=12)
 ax1.xaxis.set_label_coords(0.9, -0.015)
 plt.ylabel('20 mV', fontsize=12)
-ax1.yaxis.set_label_coords(1.0, 0.375)
+ax1.yaxis.set_label_coords(1.0, 0.255)
 scale1_x=[times[-1]+offset-0.1,times[-1]+offset]
 scale1_y=[-65,-65]
 plt.plot(scale1_x,scale1_y,color='k')
@@ -106,7 +106,7 @@ offset=0.03
 plt.xlabel('100 ms', fontsize=12)
 ax1.xaxis.set_label_coords(0.9, -0.015)
 plt.ylabel('20 mV', fontsize=12)
-ax1.yaxis.set_label_coords(1.0, 0.375)
+ax1.yaxis.set_label_coords(1.0, 0.255)
 scale1_x=[times[-1]+offset-0.1,times[-1]+offset]
 scale1_y=[-65,-65]
 plt.plot(scale1_x,scale1_y,color='k')
@@ -131,6 +131,6 @@ fig1.subplots_adjust(hspace=.7)
 #plt.xlabel('Time From Complex Spike, ms', fontsize=14, labelpad=5.5)
 #plt.text(-550,2.11,'B',fontsize=14)
 #plt.tight_layout(pad=0.4, w_pad=3.0, h_pad=1.0)
-plt.savefig('figure_gsk.jpg', dpi=900)
+plt.savefig('figure_delta_r.jpg', dpi=900)
 plt.show()
 
