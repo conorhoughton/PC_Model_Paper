@@ -83,17 +83,17 @@ plt.tick_params(
      labelbottom=False,         # ticks along the top edge are off
      labelleft=False)
 
-plt.plot(times[t1_10:t2_10], voltage_trace_10[t1:t2], 'k')
+plt.plot(times[t1_10:t2_10], voltage_trace_10[t1_10:t2_10], 'k')
 
 plt.xlabel('100 ms', fontsize=12)
 ax1.xaxis.set_label_coords(0.9, -0.015)
 plt.ylabel('20 mV', fontsize=12)
 ax1.yaxis.set_label_coords(1.0, 0.375)
-scale1_x=[times[-1]-0.095,times[-1]+0.005]
+scale1_x=[times[t2_10]-0.095,times[t2_10]+0.005]
 scale1_y=[-65,-65]
 plt.plot(scale1_x,scale1_y,color='k')
 
-scale2_x=[times[-1]+0.005,times[-1]+0.005]
+scale2_x=[times[t2_10]+0.005,times[t2_10]+0.005]
 scale2_y=[-65,-45]
 plt.plot(scale2_x,scale2_y,color='k')
 
@@ -125,18 +125,18 @@ plt.tick_params(
 plt.ylim(bottom=-70)
 plt.ylim(top=+20)
 
-plt.plot([x for x in times[t1_05:t2_05]], voltage_trace_05[t1:t2], 'k')
+plt.plot([x for x in times[t1_05:t2_05]], voltage_trace_05[t1_05:t2_05], 'k')
 
 
 plt.xlabel('100 ms', fontsize=12)
 ax1.xaxis.set_label_coords(0.9, -0.015)
 plt.ylabel('20 mV', fontsize=12)
 ax1.yaxis.set_label_coords(1.0, 0.375)
-scale1_x=[times[-1]-0.095,times[-1]+0.005]
+scale1_x=[times[t2_05]-0.095,times[t2_05]+0.005]
 scale1_y=[-65,-65]
 plt.plot(scale1_x,scale1_y,color='k')
 
-scale2_x=[times[-1]+0.005,times[-1]+0.005]
+scale2_x=[times[t2_05]+0.005,times[t2_05]+0.005]
 scale2_y=[-65,-45]
 plt.plot(scale2_x,scale2_y,color='k')
 
@@ -170,7 +170,7 @@ plt.ylim(bottom=-70)
 plt.ylim(top=+20)
 
 
-plt.plot(times[t1_01:t2_01], voltage_trace_01[t1:t2], 'k')
+plt.plot(times[t1_01:t2_01], voltage_trace_01[t1_01:t2_01], 'k')
 
 
 
@@ -178,11 +178,11 @@ plt.xlabel('100 ms', fontsize=12)
 ax1.xaxis.set_label_coords(0.9, -0.015)
 plt.ylabel('20 mV', fontsize=12)
 ax1.yaxis.set_label_coords(1.0, 0.375)
-scale1_x=[times[-1]-0.095,times[-1]+0.005]
+scale1_x=[times[t2_01]-0.095,times[t2_01]+0.005]
 scale1_y=[-65,-65]
 plt.plot(scale1_x,scale1_y,color='k')
 
-scale2_x=[times[-1]+0.005,times[-1]+0.005]
+scale2_x=[times[t2_01]+0.005,times[t2_01]+0.005]
 scale2_y=[-65,-45]
 plt.plot(scale2_x,scale2_y,color='k')
 
@@ -194,9 +194,16 @@ ax1.annotate('', xy = (0.1, -70),\
               color = 'k', arrowprops=dict(edgecolor='black', facecolor='black', arrowstyle = '<|-', shrinkA = 0, shrinkB = 0))
 
 
+plt.text(0.05,345,'A', fontsize=16)
+plt.text(0.05,185,'B', fontsize=16)
+plt.text(0.05,25 ,'C', fontsize=16)
+plt.text(0.1,335,'$g_{\mathrm{l}}=2\,$mS', fontsize=12)
+plt.text(0.1,175,'$g_{\mathrm{l}}=1\,$mS', fontsize=12)
+plt.text(0.1,15 ,'$g_{\mathrm{l}}=0.2\,$mS', fontsize=12)           
+
 
 fig1.subplots_adjust(hspace=.7)
 
-#plt.savefig('figure_4_tau_decay_three_channel_model.jpg', dpi=900)
+plt.savefig('Fig_gl_3.jpg', dpi=900)
 plt.show()
 
