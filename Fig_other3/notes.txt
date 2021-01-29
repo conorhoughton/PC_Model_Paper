@@ -1,0 +1,34 @@
+
+
+1.0
+
+first spike after 0.2
+
+start_time 0.2222499999999796
+end_time 0.22389999999997942                    
+
+so cs at 0.23225
+
+cs stength 90 uA
+
+0.5
+
+first spike after 0.2
+
+start_time 0.21982499999997987
+end_time 0.22192499999997964  
+
+so cs at 0.229835
+
+cs strength 55 uA
+
+0.1
+
+first spike after 0.2
+
+start_time 0.22624999999997916
+end_time 0.22832499999997893  
+
+so cs at 0.23625
+
+cs strength 30 uA
