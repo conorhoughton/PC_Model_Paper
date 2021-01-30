@@ -45,6 +45,7 @@ y=-0.015
 
 
 fig1 = plt.figure(facecolor='white')
+fig1.set_figheight(3.2)
 ax1 = fig1.add_subplot(211, frameon=False)
 ax1.get_xaxis().tick_bottom()
 ax1.get_yaxis().tick_left()
