@@ -29,10 +29,12 @@ y3=25
 x2=0.85
 y2=0.98
 
+voltage_trace_20_mv = np.loadtxt('voltage_2.0.txt')
 voltage_trace_10_mv = np.loadtxt('voltage_1.0.txt')
 voltage_trace_05_mv = np.loadtxt('voltage_0.5.txt')
 voltage_trace_01_mv = np.loadtxt('voltage_0.1.txt')
 
+voltage_trace_20 = [x[1]*1000 for x in voltage_trace_20_mv]
 voltage_trace_10 = [x[1]*1000 for x in voltage_trace_10_mv]
 voltage_trace_05 = [x[1]*1000 for x in voltage_trace_05_mv]
 voltage_trace_01 = [x[1]*1000 for x in voltage_trace_01_mv] 
@@ -41,6 +43,12 @@ times = [x[0] for x in voltage_trace_05_mv]
 
 t_length=0.5
 
+t1_20=0
+while times[t1_20]<0.1209:
+    t1_20+=1
+t2_20=t1_20+1
+while times[t2_20]<times[t1_20]+t_length:
+    t2_20+=1
 t1_10=0
 while times[t1_10]<0.13225:
     t1_10+=1
@@ -63,15 +71,47 @@ while times[t2_01]<times[t1_01]+t_length:
     t2_01+=1
 
     
-
-t1=10
-t2=min(len(voltage_trace_05),len(voltage_trace_10),len(voltage_trace_01))
-
 fig1 = plt.figure(facecolor='white')
+fig1.set_figheight(6.4)
+
+#0
+ax1 = fig1.add_subplot(411, frameon=False)
+
+plt.tick_params(
+     axis='both',          # changes apply to the x-axis
+     which='both',      # both major and minor ticks are affected
+     right=False,
+     bottom=False,
+     left=False,       # ticks along the bottom edge are off
+     top=False,         # ticks along the top edge are off
+     labelbottom=False,         # ticks along the top edge are off
+     labelleft=False)
+
+plt.plot(times[t1_20:t2_20], voltage_trace_20[t1_20:t2_20], 'k')
+
+plt.xlabel('100 ms', fontsize=12)
+ax1.xaxis.set_label_coords(0.9, -0.015)
+plt.ylabel('20 mV', fontsize=12)
+ax1.yaxis.set_label_coords(1.0, 0.375)
+scale1_x=[times[t2_10]-0.095,times[t2_10]+0.005]
+scale1_y=[-65,-65]
+plt.plot(scale1_x,scale1_y,color='k')
+
+scale2_x=[times[t2_10]+0.005,times[t2_10]+0.005]
+scale2_y=[-65,-45]
+plt.plot(scale2_x,scale2_y,color='k')
+
+plt.ylim(bottom=-70)
+plt.ylim(top=+20)
+
+ax1.annotate('', xy = (0.10, -70),\
+              xytext = (0.10, -55), fontsize = 12, \
+              color = 'k', arrowprops=dict(edgecolor='black', facecolor='black', arrowstyle = '<|-', shrinkA = 0, shrinkB = 0))
+
 
 #1
 
-ax1 = fig1.add_subplot(311, frameon=False)
+ax1 = fig1.add_subplot(412, frameon=False)
 
 plt.tick_params(
      axis='both',          # changes apply to the x-axis
@@ -100,9 +140,6 @@ plt.plot(scale2_x,scale2_y,color='k')
 plt.ylim(bottom=-70)
 plt.ylim(top=+20)
 
-ax1.text(x3,y3,'A', fontsize=16)
-
-
 ax1.annotate('', xy = (0.10, -70),\
               xytext = (0.10, -55), fontsize = 12, \
               color = 'k', arrowprops=dict(edgecolor='black', facecolor='black', arrowstyle = '<|-', shrinkA = 0, shrinkB = 0))
@@ -110,7 +147,7 @@ ax1.annotate('', xy = (0.10, -70),\
 
 #2
 
-ax1 = fig1.add_subplot(312, frameon=False)
+ax1 = fig1.add_subplot(413, frameon=False)
 
 plt.tick_params(
     axis='both',          # changes apply to the x-axis
@@ -140,12 +177,6 @@ scale2_x=[times[t2_05]+0.005,times[t2_05]+0.005]
 scale2_y=[-65,-45]
 plt.plot(scale2_x,scale2_y,color='k')
 
-
-
-
-
-ax1.text(x3,y3,'B', fontsize=16)
-
 ax1.annotate('', xy = (0.1, -70),\
               xytext = (0.1, -55), fontsize = 12, \
               color = 'k', arrowprops=dict(edgecolor='black', facecolor='black', arrowstyle = '<|-', shrinkA = 0, shrinkB = 0))
@@ -154,7 +185,7 @@ ax1.annotate('', xy = (0.1, -70),\
 #3
 
 
-ax1 = fig1.add_subplot(313, frameon=False)
+ax1 = fig1.add_subplot(414, frameon=False)
 
 plt.tick_params(
     axis='both',          # changes apply to the x-axis
@@ -186,17 +217,16 @@ scale2_x=[times[t2_01]+0.005,times[t2_01]+0.005]
 scale2_y=[-65,-45]
 plt.plot(scale2_x,scale2_y,color='k')
 
-ax1.text(x3,y3,'C', fontsize=16)
-
-
 ax1.annotate('', xy = (0.1, -70),\
               xytext = (0.1, -55), fontsize = 12, \
               color = 'k', arrowprops=dict(edgecolor='black', facecolor='black', arrowstyle = '<|-', shrinkA = 0, shrinkB = 0))
 
+plt.text(0.05,505,'A', fontsize=16)
+plt.text(0.05,345,'B', fontsize=16)
+plt.text(0.05,185,'C', fontsize=16)
+plt.text(0.05,25 ,'D', fontsize=16)
 
-plt.text(0.05,345,'A', fontsize=16)
-plt.text(0.05,185,'B', fontsize=16)
-plt.text(0.05,25 ,'C', fontsize=16)
+plt.text(0.1,495,'$g_{\mathrm{l}}=4\,$mS', fontsize=12)
 plt.text(0.1,335,'$g_{\mathrm{l}}=2\,$mS', fontsize=12)
 plt.text(0.1,175,'$g_{\mathrm{l}}=1\,$mS', fontsize=12)
 plt.text(0.1,15 ,'$g_{\mathrm{l}}=0.2\,$mS', fontsize=12)           

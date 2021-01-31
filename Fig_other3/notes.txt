@@ -32,3 +32,13 @@ end_time 0.22832499999997893
 so cs at 0.23625
 
 cs strength 30 uA
+
+
+2.0
+
+first spike after 0.2
+
+start_time 0.21089999999998085
+end_time 0.2123249999999807   
+
+so cs at 0.2209
