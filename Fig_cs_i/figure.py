@@ -154,18 +154,22 @@ plt.plot(scale2_x,scale2_y,color='k')
 
 
 
-plt.text(0.1,0.1,'A', fontsize=16,transform=ax1.transAxes)
-plt.text(0.1,0.1,'B', fontsize=16,transform=ax2.transAxes)
-plt.text(0.1,0.1,'C', fontsize=16,transform=ax3.transAxes)
-plt.text(0.1,0.1,'D', fontsize=16,transform=ax4.transAxes)
-plt.text(0.1,0.1,'E', fontsize=16,transform=ax5.transAxes)
-plt.text(0.1,0.1,'F', fontsize=16,transform=ax6.transAxes)
+plt.text(0.0,0.9,'A', fontsize=16,transform=ax1.transAxes)
+plt.text(0.0,0.9,'B', fontsize=16,transform=ax2.transAxes)
+plt.text(0.0,0.9,'C', fontsize=16,transform=ax3.transAxes)
+plt.text(0.,0.9,'D', fontsize=16,transform=ax4.transAxes)
+plt.text(0.,0.9,'E', fontsize=16,transform=ax5.transAxes)
+plt.text(0.,0.9,'F', fontsize=16,transform=ax6.transAxes)
 
 
-#plt.text(0.1,495,'$g_{\mathrm{l}}=4\,$mS', fontsize=12)
-#plt.text(0.1,335,'$g_{\mathrm{l}}=2\,$mS', fontsize=12)
-#plt.text(0.1,175,'$g_{\mathrm{l}}=1\,$mS', fontsize=12)
-#plt.text(0.1,15 ,'$g_{\mathrm{l}}=0.2\,$mS', fontsize=12)           
+plt.text(0.3,0.9,  '$10\,\mu$A$/$cm$^2$', fontsize=12,transform=ax1.transAxes)
+plt.text(0.3,0.9, '$20\,\mu$A$/$cm$^2$', fontsize=12,transform=ax2.transAxes)
+plt.text(0.3,.9,   '$45\,\mu$A$/$cm$^2$', fontsize=12,transform=ax3.transAxes)
+plt.text(0.3,0.9 ,'$60\,\mu$A$/$cm$^2$', fontsize=12,transform=ax4.transAxes)           
+plt.text(0.3,0.9,  '$90\,\mu$A$/$cm$^2$', fontsize=12,transform=ax5.transAxes)
+plt.text(0.3,0.9 ,'$150\,\mu$A$/$cm$^2$', fontsize=12,transform=ax6.transAxes)           
+
+
 
 fig1.subplots_adjust(hspace=.7)
 
