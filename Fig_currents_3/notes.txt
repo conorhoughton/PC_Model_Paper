@@ -1,0 +1,6 @@
+currents: cs at 0.23225
+
+-> shorter
+
+awk '{if($1>0.21225 && $1<0.28725){print $1-0.21225," ",$0}}' < currents.txt  > currents_short.txt
+

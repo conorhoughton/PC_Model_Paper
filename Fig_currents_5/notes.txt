@@ -1,0 +1,7 @@
+gsk: time - gsk - ca_conc
+
+currents: cs at 0.2151745
+
+-> shorter
+
+awk '{if($1>0.1951745 && $1<0.2701745){print $1-0.1951745," ",$0}}' < currents.txt  > currents_short.txt                 
