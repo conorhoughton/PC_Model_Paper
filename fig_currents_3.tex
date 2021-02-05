@@ -4,15 +4,16 @@
 \path (0.000,0.000) rectangle (12.500,8.750);
 \gpcolor{color=gp lt color border}
 
-\draw [fill=gray] (12.25,1.75) rectangle (12.75,6.125);
+\draw [fill=white] (12.25,1.75) rectangle (12.75,6.125);
 
 \gpcolor{color=gp lt color border}
   \node[gp node center] at (12.5,2.54375) {\color{pink}\textbf{L}\color{black}};
   \node[gp node center] at (12.5,3.14375) {\color{green}\textbf{K}\color{black}};
   
-  \node[gp node center] at (12.5,5.16875) {\color{red}\textbf{Na}\color{black}};
-  \node[gp node center] at (12.5,5.76875) {\color{yellow}\textbf{I}\color{black}};
+  \node[gp node center] at (12.5,4.73125) {\color{red}\textbf{Na}\color{black}};
+  \node[gp node center] at (12.5,5.33125) {\color{yellow}\textbf{I}\color{black}};
 \node[gp node center,rotate=-270] at (0.292,7.874) {105 mV};
+\draw [<->,thick] (0.6,7) -- (0.6,8.66);
 \gpcolor{rgb color={0.000,0.000,0.000}}
 \gpsetlinetype{gp lt border}
 \gpsetdashtype{gp dt solid}
@@ -523,6 +524,7 @@
 \gpcolor{color=gp lt color border}
 \gpsetlinewidth{1.00}
 \draw[gp path] (0.768,6.999)--(0.768,6.125)--(11.947,6.125)--(11.947,6.999)--cycle;
+\node[gp node center,rotate=-270] at (0.292,6.562) {0.6 nA};
 \node[gp node center,rotate=-270] at (0.292,6.562) {0.6 nA};
 \gpcolor{rgb color={0.580,0.000,0.827}}
 \draw[gp path] (0.772,6.230)--(0.775,6.230)--(0.779,6.230)--(0.783,6.230)--(0.787,6.230)%
@@ -5862,7 +5864,8 @@
 \node[gp node center] at (11.202,0.387) {$70$};
 \draw[gp path] (0.768,1.750)--(0.768,0.875)--(11.947,0.875)--(11.947,1.750)--cycle;
 \node[gp node center,rotate=-270] at (0.292,1.312) {0.6 nA};
-\node[gp node center] at (6.357,-0.075) {ms};
+\draw [<->,thick] (0.6,0.875) -- (0.6,1.750);
+\node[gp node center] at (6,-0.075) {time (ms)};
 \gpcolor{rgb color={0.580,0.000,0.827}}
 \draw[gp path] (0.772,1.645)--(0.775,1.645)--(0.779,1.645)--(0.783,1.645)--(0.787,1.645)%
   --(0.790,1.645)--(0.794,1.645)--(0.798,1.645)--(0.802,1.645)--(0.805,1.645)--(0.809,1.645)%
