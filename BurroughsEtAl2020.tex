@@ -43,6 +43,7 @@
 \usepackage{tikz}
 \usetikzlibrary{arrows}
 \usetikzlibrary{positioning}
+\usepackage{gnuplot-lua-tikz}
 \pgfarrowsdeclare{ha}{ha} 
 { 
   \arrowsize=2pt 
@@ -221,13 +222,13 @@ waveform and a five-current model which demonstrates how some of the
 interactions between simple spikes and complex spikes can be explained
 by calcium dynamics.
 
-These models serve as a description of the essential ion-channel
-dynamics supporting complex spike production and should enable further
-analysis of complex spiking and its relationship to simple spiking. In
-this way, the models complement the large and detailed models
-described by \citet{VeysEtAl2013,ZangEtAl2018} and give a starting
-point for a model which also incorporates the interaction between
-simple spike rate and complex spike waveform described in
+These models serve as a description of ion-channel dynamics sufficient
+to support complex spike production and should enable further analysis
+of complex spiking and its relationship to simple spiking. In this
+way, the models complement the large and detailed models described by
+\citet{VeysEtAl2013,ZangEtAl2018} and give a starting point for a
+model which also incorporates the interaction between simple spike
+rate and complex spike waveform described in
 \citet{BurroughsEtAl2016}.
 
 \section{Methods}
@@ -309,17 +310,11 @@ where $t_0$ is the time the double exponential function reaches its maximum:
 \begin{equation}
 t_0 = \frac{\tau_+\tau_-} {\tau_--\tau_+}\log{\frac{\tau_-}{\tau_+}}.
 \end{equation}
-$I_0=62\,\mu\mathrm{A}\cm^{-2}$ and $I_0=67\,\mu\mathrm{A}\cm^{-2}$
-are background currents in the three-current model and five-current
-model respectively, $I_{\mathrm{cf}}=52\,\mu\mathrm{A}\cm^{-2}$ and
-$I_{\mathrm{cf}}=71\,\mu\mathrm{A}\cm^{-2}$ are the maximum amplitudes
-of the climbing fibre current in the three-current model and the
-five-current model respectively, $\tau_+=0.3\mse$ and $\tau_-=4\mse$
-are the rise and decay timescales respectively and are the same for
-both the three-current and five-current model.
+$I_0$ is a background current and $I_{\mathrm{cf}}$ is the maximum
+amplitude. $\tau_+=0.3\mse$ and $\tau_-=4\mse$ are the rise and decay
+timescales respectively.
 
 \subsection{Ion channels}
-
 
 \begin{table*}[!t]
 \begin{center}
@@ -442,7 +437,7 @@ transient and resurgent gates. The current is
 \label{eq:I_RNa}
 I_{\na} = \bar{g}_\na o (E_\na-V)
 \end{equation}
-$o$ is the fraction of gates in the open state $O$, as described in Table~\ref{fig:MarkovRNa} and $\bar{g}_\na=115\msi$.
+$o$ is the fraction of gates in the open state $O$, as described in Table~\ref{fig:MarkovRNa}.
 
 The potassium current has a fast potassium channel of the K\textsubscript{v}3.3 subtype and is modelled as in
 \citet{MasoliEtAl2015}:
@@ -450,7 +445,7 @@ The potassium current has a fast potassium channel of the K\textsubscript{v}3.3 
 \label{eq:I_K}
 I_{\k} = \bar{g}_{\k} n^4(E_{\k}-V)
 \end{equation}
-where $\bar{g}_{\k}= 15\msi$ and $E_{\k}=-88\mv$. Channel kinetics are described with the usual Hodgkin-Huxley channel equation but with:
+Channel kinetics are described with the usual Hodgkin-Huxley channel equation but with:
 \begin{align}
 \label{eq:n_kinetics}
 \alpha_{n} &= 0.22
@@ -469,7 +464,7 @@ current is described by
 \label{eq:I_Ca}
 I_\ca =\bar{g}_{\ca} q(E_\ca-V)
 \end{equation}
-with $\bar{g}_\ca= 0.3\msi$ and $E_\ca = 135\mv$. $q$ is the proportion of gates in the open state. Channel kinetics are given by
+where $q$ is the proportion of gates in the open state. Channel kinetics are given by
 \begin{align}
 \label{eq:q_kinetics}
 \alpha_{q} &= \frac{8.5}{ 1 +
@@ -485,16 +480,19 @@ The intracellular calcium concentration dynamics are taken from
 \rho ([\ca^{2+}]-[\ca^{2+}]_0)
 \end{equation}
 Thus, calcium enters the soma as part of the $I_\mathrm{e}$ input
-current and through calcium channels; $c=0.02$ is a measure of what
+current and through calcium channels; $c$ is a measure of what
 fraction of $I_{\mathrm{e}}$ is composed of calcium and $\gamma$ is a
 conversion factor which converts the current to a calcium
 concentration flux. As well as quantifying the charge of each ion,
 this factor needs to account for the distribution of calcium in the
 soma; unlike current which depends on membrane area, concentration
 depends on volume. However, in the soma the calcium is sequestered in
-a thin layer near the membrane. Hence, $\gamma=0.01/zF\delta
-r\,\mathrm{cm}^{-2}$ where $z=2$ is the electrical charge of the
-calcium ion, $\delta r=0.2\,\mu\mathrm{m}$ is the width of the somatic
+a thin layer near the membrane. Hence,
+\begin{equation}
+\gamma=\frac{1}{zF\delta r} 
+\end{equation}
+where $z=2$ is the electrical charge of the
+calcium ion, $\delta r$ is the width of the somatic
 submembrane shell and $F$ is Faraday's constant. In the absence of
 calcium inflow the calcium concentration returns with rate constant
 $\rho=0.02\mathrm{ms}^{-1}$ to a baseline value $[\ca^{2+}]_0
@@ -511,7 +509,7 @@ channel, \citep{LancasterEtAl1991}. The channel dynamics are taken from
 \label{eq:I_SK}
 I_{\sk} = {\bar{g}_{\sk}}w(E_\k-V)
 \end{equation}
-where $\bar{g}_\sk = 105\msi$. Channel kinetics are
+Channel kinetics are
 \begin{align}
 \label{eq:w_kinetics}
 \frac{dw}{dt} &= \frac{w_\infty- w}{\tau_w}\cr
@@ -540,6 +538,7 @@ $E_\na$&$45\mv$&&& \citep{DeSchutterBower1994a}\\ \hline
 $E_\ca$&&&$135\mv$& \citep{DeSchutterBower1994a}\\ \hline
 $[\ca^{2+}]$&&&$30\, \mathrm{nM}\cm^{-3}$& \citep{KanoEtAl1995}\\ \hline
 $\delta r$&&&$0.15\,\mu\mathrm{m}$& \\ \hline
+$c$&&&$0.02$& \\ \hline
 $I_0$&&$63\,\mu\mathrm{A}\cm^{-2}$&$98\,\mu\mathrm{A}\cm^{-2}$& $\star$\\ \hline
 $I_{\mathrm{cf}}$&&$8-215\,\mu\mathrm{A}\cm^{-2}$&$8-215\,\mu\mathrm{A}\cm^{-2}$& $\ddagger$\citep{StuartHausser1994}\\ \hline
 $\tau_+$&$0.3\mse$&&&  $\ddagger$\citep{StuartHausser1994}\\ \hline
@@ -547,21 +546,20 @@ $\tau_-$&$4\mse$&&& $\ddagger$\citep{StuartHausser1994}\\ \hline
 \end{tabular}
 \end{center}
 \caption{Parameter values and their associated references. The
-  parameters marks with a star ($\star$) have been handtuned, where
-  there is a reference it is to the starting value given beside the
-  star. The parameters marked with a double dagger ($\ddagger$) have
-  been chosen to fit the dynamics of the somatic voltage change
-  recorded in response to climbing fibre activity in
-  \protect\citet{DavieEtAl2008}.}
+  parameters marks with a star ($\star$) have been handtuned.}
 \label{table1}
 \end{table*}
 
 Parameter values are given in Table~\ref{table1}. Most parameter
 values used in this modelling study were taken from experimental
 studies. However, some parameters that are not easily measured
-experimentally are optimised here so that the complex spike waveform
-shape had the best fit to complex spikes recorded experimentally
-\textit{in vitro}, see Figure 1D in \citet{DavieEtAl2008}.
+experimentally and here values are used that give a typical complex
+spike waveform. As will be discussed, the complex spike waveform is
+highly variable with considerable cell to cell variation along with
+considerable sensitivity to experimental conditions. Our models are
+also capable of producing complex-spike-like activity across a broad
+range of parameter values with different parameter sets giving
+different complex spike waveforms.
 
 Simulations were run in Python on a CPU. Models were simulated as
 ordinary differential equations and integration was performed using
@@ -575,33 +573,8 @@ dynamics and in the numerical scheme this sum is normalized every
 0.025 ms. One second of Purkinje cell activity can be simulated in 1
 minute 20 seconds.
 
-Optimization was performed using a mixture of error minimization and
-hand-tuning techniques. In order to have a definite
-target in tuning parameters the model was optimized to simulate
-features of a typical complex spike recorded \textit{in vitro} in
-\citet{DavieEtAl2008} and illustrated here, with permission, in
-Fig.~\ref{injection_amplitudes}Aiv. This complex spike was chosen
-because complex spikes with three spikelets are most common
-\citep{BurroughsEtAl2016}. Although this is a specific experimental
-result; it exhibits those general features of complex spikes we wanted
-to simulate in our model and so it serves as a useful target for
-parameter fitting. Specifically, the model was fitted to specific
-features of the complex spike waveform that included the timing of
-individual spikelets within the complex spike, the order of spikelet
-amplitudes within the complex spike and overall complex spike
-duration.
-
-The error used was the squared distance between the simulated Purkinje
-cell voltage trace in response to climbing fibre input and the typical
-complex spike recorded \textit{in vitro},
-Fig.~\ref{injection_amplitudes}Aiv. Error minimization used the
-downhill simplex
-algorithm\footnote{\texttt{scipy.optimize.minimize}}. The square-error
-can be unstable for spike-like profiles, given that minor changes in
-the timing of individual spikelet peaks can generate huge changes in
-the square error even if other spike features are well described. This
-could be addressed through a time rescaling; here, though, the error
-minimization was combined with hand-tuning. We hand-tuned by running
+Optimization was principally performed using a mixture of error
+minimization and hand-tuning techniques. We hand-tuned by running
 simulations thousands of times with different combinations of
 physiologically plausible parameter values to create large grids of
 simulated complex spike images and then selecting the best by
@@ -612,8 +585,6 @@ somatic currents varied from 8 $\mu$A$/$cm$^2$ through to 215
 $\mu$A$/$cm$^2$ Fig.~\ref{injection_amplitudes}. Assuming a surface
 area of 500 $\mu$m$^2$ this would correspond to current injections
 between 0.4 nA and 10.75 nA.
-
-
 
 \section{Results}
 
@@ -637,14 +608,14 @@ input is a property of Purkinje cells \cite{DeSchutterBower1994a}.
   \caption{\textbf{Simple spike properties in the three- and
       five-current models}. To measure the width of a spike, $\delta
     t_1$, a spike is defined as lasting from when the derivative
-    $dv/dt$ exceeds 12 Vs$^{-1}$ until when its voltage returns to the
+    $dV/dt$ exceeds 12 Vs$^{-1}$ until when its voltage returns to the
     value it had at that initial point. The post-spike depolarization,
     $\delta t_2$ is defined as the period from the voltage minimum
-    to the point the derivative $dv/dt=0$.\label{fig:spike_properties}}
+    to the point the derivative $dV/dt=0$.\label{fig:spike_properties}}
   \begin{center}
-    \begin{tabular}{|l l l|}
-      \hline
-      Property & Three-current (\textbf{A}) & Five-current (\textbf{B})\\ \hline
+    \begin{tabular}{|l l hline|}
+      \l
+      PROPERTY & THREE-CURRENT (\TEXTBF{A}) & Five-CURRENT (\textbf{B})\\ \hline
       $\delta t_1$ (ms)& 1.85&1.445\\
       max (mV)&16.0&13.37\\
       min (mV)&-58.0 &-58.3\\
@@ -654,7 +625,7 @@ input is a property of Purkinje cells \cite{DeSchutterBower1994a}.
     \end{center}
 \end{figure}
 
-
+%we need to finalize this!
 \begin{figure}[!ht]
   \include{fi_curves}
   \caption{\textbf{Firing rate and input current for simple spiking in
@@ -667,41 +638,34 @@ input is a property of Purkinje cells \cite{DeSchutterBower1994a}.
 \end{figure}
 
 
-%doesn't need to be changed.
+%done
 \begin{figure}[!ht]
-\includegraphics[width=\linewidth]{Figure1.png}
+\includegraphics[width=\linewidth]{fig_cs_i.jpg}
 \caption{\textbf{Simulated complex spike responses to increasing
-    amplitudes of injected current}. The top row \textbf{(A)} shows
-  \textsl{in vitro} Purkinje cell recordings from
-  \protect\citet{DavieEtAl2008} in response to increasing (from 5 $nA$
-  \textbf{(Ai)} through to 22 $nA$ \textbf{(Avi)}) injections of
-  climbing-fibre-like synaptic current. The bottom row \textbf{(B)}
-  shows the result of the three-current model simulation in response
-  to increasing injections of climbing-fibre-like somatic current
-  (from 8 $\mu$A$/$cm$^2$ \textbf{(Bi)} through to 215 $\mu$A$/$cm$^2$
-  \textbf{(Bvi)}). The structure of the complex spikes, and the manner
-  of their response to increasing amplitudes of injected current, are
-  very similar when comparing the \textsl{in vitro} responses and the
-  output of our model. The models presented here were fitted to the
-  complex spike recorded in \textbf{(Aiv)}.}
-\label{injection_amplitudes}
+            amplitudes of injected current}. This show the response of the
+  three-current model simulation in response to increasing injections
+  of climbing-fibre-like somatic current from 10 $\mu$A$/$cm$^2$
+  (\textbf{A}) through to 150 $\mu$A$/$cm$^2$ (\textbf{F}). The
+  structure of the complex spikes, and the manner of their response to
+  increasing amplitudes of injected current are very similar to those
+  observed in \cite{DavieEtAl2008}\label{fig_cs_i}
 \end{figure}
 
 %doesn't need to be changed.
-\begin{figure}[!ht]
-\includegraphics[width=\linewidth]{Figure2.png}
-\caption{\textbf{Comparison of the input current and complex spike.}
-  This shows 10 ms of the \textbf{(above)} input to the three-current
-  model and \textbf{(below)} complex spike response; the complex spike
-  is the same one shown in Fig.~\ref{injection_amplitudes}Biv. The
-  input departs from $I_0$ at $t=1\mse$.}
-    \label{fig:S1_fig}
-\end{figure}
+%\begin{figure}[!ht]
+%\includegraphics[width=\linewidth]{Figure2.png}
+%\caption{\textbf{Comparison of the input current and complex spike.}
+%  This shows 10 ms of the \textbf{(above)} input to the three-current
+%  model and \textbf{(below)} complex spike response; the complex spike
+%  is the same one shown in Fig.~\ref{injection_amplitudes}Biv. The
+%  input departs from $I_0$ at $t=1\mse$.}
+%    \label{fig:S1_fig}
+%\end{figure}
 
 The three-current model includes a leak channel, a sodium channel with
 both transient and resurgent sodium gates, and a fast potassium
 channel. The main features of the complex spike shape are found in
-this three-current model, Fig.~\ref{injection_amplitudes}. With
+this three-current model, Fig.~\ref{fig_cs_i}. With
 increasing injections of climbing-fibre-induced somatic current, the
 number of spikelets in the simulated complex spike increased from one
 to three. Each additional spikelet had successively greater amplitudes
@@ -712,41 +676,52 @@ spikelets increases to three. Further increases cause the amplitude of
 the spikelets to decrease, before the spikelets are lost altogether
 and replaced by a depolarisation plateau. The model was robust to
 injections of greater parallel fibre current and the subsequent
-increases in the rate of simple spike firing. To indicate the
-relationship between the complex spike and the input current these are
-plotted together in Fig.~\ref{fig:S1_fig} for the specific complex
-spike seen in Fig.~\ref{injection_amplitudes}Biv.
+increases in the rate of simple spike firing.
+
+
+
 
 %doesn't need to be changed.
 \begin{figure}[!ht]
-  \includegraphics[width=\linewidth]{Figure3.png}
-\caption{\textbf{Currents involved in complex spike formation.} The
-contribution of each current in the three-current model ($I_{\na}$,
-dash; $I_{\k}$, dot; $I_{\leak}$, dash-dot) to
-complex spike generation, \textbf{(A)}. \textbf{(B)} shows the
- voltage trace of the simulated Purkinje cell in the three-current model. The resulting simulated Purkinje cell activity
-following removal of each of the active conductances (\textbf{(C)}: $I_{\na}$
-, \textbf{(D)}: $I_{\k}$). Arrows
-indicate the times of the simulated climbing-fibre-like current
-injections.}
-\label{currents}
+  \include{fig_currents_3}
+  \caption{\textbf{Currents involved in complex spike formation in the
+      three-current model.} This is a currentscape, an approach to
+    visualizing neural dynamics introduced in
+    \cite{AlonsoMarder2019}. At the top, for reference, is the voltage
+    $V$; in the subsequence panels the currents are split between
+    inwards and outwards currents; the second panel graphs the inward
+    current and the last panel the outward. The third and fourth
+    panels show the fraction of, respectively, the inward and outward
+    current made up of the the three currents in the model, along with
+    the direct current input; the current input $I_{\e}$ is yellow,
+    the sodium current, $I_{\na}$ is red, the potassium, $I_{\k}$ is
+    green and the leak, $I_{\leak}$, is pink.}
+\label{currents_3}
 \end{figure}
 
+\begin{figure}[!ht]
+  \begin{center}
+    \includegraphics{figure_no_current.jpg}
+  \end{center}
+  \caption{\textbf{The consequence of removing a current.} Here the
+    activity in the three-current model is simulated for 105 ms with
+    either the potassium current (\textbf{B}, no $I_\k$) or the sodium current
+    (\textbf{C}, no I_\na) removed; the normal unadjusted model is shown in \textbf{A} for comparison.}
+\label{fig:no_current}
+\end{figure}
+  
 The contributions of each of the individual currents are outlined in
-Fig.~\ref{currents}.  The interplay between the resurgent sodium and
+Fig.~\ref{currents_3}.  The interplay between the resurgent sodium and
 fast potassium currents is critical in generating the spikelets in the
-complex spike. Spikelet formation is absent following the removal of
-the K\textsubscript{v}3.3 current, in line with experimental
-investigation \citep{ZaghaEtAl2010}, but there is still a
-depolarisation plateau following the injection of climbing fibre
-current. In the absence of the sodium current, spikelets are
-abolished, as are simple spikes but the size of the climbing fibre
-current is sufficient to cause a spike. The combination of active
-sodium and potassium currents is therefore necessary for modelling
-complex spikes. Of course, these currents also affect the simple spike
-dynamics; for example, the simple spike firing rate depends on the
-size of the sodium current, Fig.~\ref{fig:ss_v_grna}.
-
+complex spike. In Fig.~\ref{fig:no_current} we see the spikelet
+formation is absent following the removal of the K\textsubscript{v}3.3
+current, in line with experimental investigation
+\citep{ZaghaEtAl2010}, but there is still a depolarisation plateau
+following the injection of climbing fibre current. In the absence of
+the sodium current, spikelets are abolished, as are simple spikes but
+the size of the climbing fibre current is sufficient to cause a small
+spike. The combination of active sodium and potassium currents is
+therefore necessary for modelling complex spikes.
 
 \begin{figure}[!ht]
   \include{fr_grna}
@@ -800,7 +775,7 @@ similar to the Purkinje cell responses described experimentally
 \textsl{in vitro} in \citet{MonsivaisEtAl2005}.
 
 
-
+%figure done, fix caption
 \begin{figure}[!ht]
 \include{cs}
 \caption{\textbf{Longer time-base Purkinje cell simulations showing
@@ -853,6 +828,14 @@ channel and a calcium-gated potassium channel.
 \end{figure}
 
 
+\begin{figure*}
+  \begin{center}
+    \include{fig_currents_3}
+  \end{center}
+  \end{figure*}
+
+
+
 The baseline simple spike rate in the five-current model is $\sim
 40\hz$, Fig.~\ref{fig:long_time_base}B. This is in line with the rate
 of spontaneous Purkinje cell simple spike activity recorded \textit{in
@@ -872,8 +855,27 @@ time constants describing the decay of the injected climbing fibre
 input, behave similarly to those simulated in the three-current model,
 Fig.~\ref{S2_Fig}.
 
+%figure done, fix caption
 \begin{figure}[!ht]
-  \includegraphics[width=\linewidth]{Figure7.png}
+  \includegraphics[width=\linewidth]{figure_gsk.jpg}
+%\includegraphics[width=\linewidth]{JNeuroFigures/figure_6_five_channel.jpg}
+\caption{\textbf{The model is robust to changes in parameter values.}
+ Changing the parameter $\bar{g}_\sk=105\msi$ \textbf{(A)} influences simple
+  spike rate and pause duration. Decreasing $\bar{g}_\sk$ from
+  $105\msi$ to 80$\msi$ leads to an increase in background simple spike
+  rate and a reduction in the duration of the post-complex spike pause
+  in simple spike activity \textbf{(B)}, whereas increasing
+  $\bar{g}_\sk$ from $105\msi$ to 130$\msi$ decreases simple spike rate
+  and increases pause duration \textbf{(C)}. Arrows indicate the time
+  of climbing-fibre-like current injection. The model was robust to
+  small changes in other parameter values.}
+\label{S3_Fig}
+\end{figure}
+
+
+%figure done, fix caption
+\begin{figure}[!ht]
+  \includegraphics[width=\linewidth]{figure_delta_r.jpg}
 %\includegraphics[width=\linewidth]{JNeuroFigures/figure_6_five_channel.jpg}
 \caption{\textbf{The model is robust to changes in parameter values.}
  Changing the parameter $\bar{g}_\sk=105\msi$ \textbf{(A)} influences simple
@@ -915,7 +917,7 @@ smaller amplitude spikelets with the first spikelet having a smaller
 amplitude than those that follow. In the five-current model, which
 extends the three-current model by including a P/Q type calcium
 channel and a calcium-activated potassium channel, some of the
-interactions between complex spike activity and background simple
+interactions between complex spike activity and background simples
 spike behaviour are also observed in simulations.
 
 In these models, the dynamics of the resurgent sodium channel has a
@@ -927,6 +929,44 @@ open-but-blocked state so that the following spikelets are stunted
 relative to the initial spike and blocked channels returning to the
 open state help sustain the depolarization for subsequent spikelet
 generation.
+
+
+%figure done, fix caption
+\begin{figure}[!ht]
+%  \includegraphics[width=\linewidth]{figure_gl_3.jpg}
+%\includegraphics[width=\linewidth]{JNeuroFigures/figure_6_five_channel.jpg}
+\caption{\textbf{Other models} A half second of simulation.
+}
+
+  \begin{center}
+    \begin{tabular}{|l l l l l|}
+      \hline
+      Property &  \textbf{A} & \textbf{B} & \textbf{C} & \textbf{D}\\ \hline
+      $g_{\mathrm{l}}$ (mS)& 4& 2&1&0.2\\
+        $g_\na$ (mS)&202&105&55&25\\
+        $g_\k$ (mS)&30&15&8&15\\
+      $I_0$ ($\mu$Acm$^{-2}$)  &124         &63&31&5.5\\
+      $I_{\mathrm{cf}}$ ($\mu$Acm$^{-2}$) &110&90&55&40\\
+      \hline
+    \end{tabular}
+    \end{center}
+
+
+\label{Fig:gl_3}
+\end{figure}
+
+\begin{figure*}
+  \begin{center}
+    \include{fig_currents_5}
+  \end{center}
+  \end{figure*}
+
+\begin{figure*}
+  \begin{center}
+    \include{current_2}
+  \end{center}
+  \end{figure*}
+
 
 In fact, somatic complex spikes are often thought to be generated by
 an interplay between the resurgent sodium current
