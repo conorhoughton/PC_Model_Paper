@@ -74,8 +74,6 @@ ax1.set_ylim(bottom,top)
 
 plt.plot(times[t1:t2], voltage_5[t1:t2], 'k')
 
-
-
 offset=0.005
 
 plt.xlabel('20 ms', fontsize=12)
@@ -164,13 +162,18 @@ scale2_x=[times[t2]+offset,times[t2]+offset]
 scale2_y=[-65,-45]
 plt.plot(scale2_x,scale2_y,color='k')
 
-plt.text(0.17,340,'A', fontsize=16)
-plt.text(0.17,180,'B', fontsize=16)
-plt.text(0.17,20 ,'C', fontsize=16)
+plt.text(0.17,350,'A', fontsize=16)
+plt.text(0.17,190,'B', fontsize=16)
+plt.text(0.17,30 ,'C', fontsize=16)
 
-plt.text(0.18,340,'$\\tau_-=5$ ms', fontsize=12)
-plt.text(0.18,180,'$\\tau_-=8$ ms', fontsize=12)
-plt.text(0.18,20 ,'$\\tau_- = 12$ ms and $I_{\\mathrm{cf}}=20\\,\\mu$A/cm$^2$', fontsize=12)
+#plt.text(0.18,353.5,'$\\tau_-=5$ ms', fontsize=12)
+#plt.text(0.18,193.5,'$\\tau_-=8$ ms', fontsize=12)
+#plt.text(0.18,30 ,'$\\tau_- = 12$ ms and $I_{\\mathrm{cf}}=20\\,\\mu$A/cm$^2$', fontsize=12)
+
+
+plt.text(0.18,350,'5 ms', fontsize=12)
+plt.text(0.18,190,'8 ms', fontsize=12)
+plt.text(0.18,30 ,'12 ms and $I_{\\mathrm{cf}}=20\\,\\mu$A/cm$^2$', fontsize=12)
 
 
 
