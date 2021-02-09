@@ -226,10 +226,10 @@ plt.text(0.05,345,'B', fontsize=16)
 plt.text(0.05,185,'C', fontsize=16)
 plt.text(0.05,25 ,'D', fontsize=16)
 
-plt.text(0.1,495,'$g_{\mathrm{l}}=4\,$mS', fontsize=12)
-plt.text(0.1,335,'$g_{\mathrm{l}}=2\,$mS', fontsize=12)
-plt.text(0.1,175,'$g_{\mathrm{l}}=1\,$mS', fontsize=12)
-plt.text(0.1,15 ,'$g_{\mathrm{l}}=0.2\,$mS', fontsize=12)           
+plt.text(0.1,495,'4 mS cm$^{-2}$', fontsize=12)
+plt.text(0.1,335,'2 mS cm$^{-2}$', fontsize=12)
+plt.text(0.1,175,'1 mS cm$^{-2}$', fontsize=12)
+plt.text(0.1,15 ,'0.2 mS cm$^{-2}$', fontsize=12)           
 
 
 fig1.subplots_adjust(hspace=.7)
