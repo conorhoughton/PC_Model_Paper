@@ -223,12 +223,12 @@ plt.text(0.,0.95,'E', fontsize=16,transform=ax5.transAxes)
 plt.text(0.,0.95,'F', fontsize=16,transform=ax6.transAxes)
 
 
-plt.text(0.3,0.95,  '$20\,\mu$A$/$cm$^2$', fontsize=12,transform=ax1.transAxes)
-plt.text(0.3,0.95, '$40\,\mu$A$/$cm$^2$', fontsize=12,transform=ax2.transAxes)
-plt.text(0.3,0.95,  '$60\,\mu$A$/$cm$^2$', fontsize=12,transform=ax3.transAxes)
-plt.text(0.3,0.95 ,'$90\,\mu$A$/$cm$^2$', fontsize=12,transform=ax4.transAxes)           
-plt.text(0.3,0.95,  '$110\,\mu$A$/$cm$^2$', fontsize=12,transform=ax5.transAxes)
-plt.text(0.3,0.95 ,'$190\,\mu$A$/$cm$^2$', fontsize=12,transform=ax6.transAxes)           
+plt.text(0.3,0.95,  '$20\,\mu$A cm$^{-2}$', fontsize=12,transform=ax1.transAxes)
+plt.text(0.3,0.95, '$40\,\mu$A cm$^{-2}$', fontsize=12,transform=ax2.transAxes)
+plt.text(0.3,0.95,  '$60\,\mu$A cm$^{-2}$', fontsize=12,transform=ax3.transAxes)
+plt.text(0.3,0.95 ,'$90\,\mu$A cm$^{-2}$', fontsize=12,transform=ax4.transAxes)           
+plt.text(0.3,0.95,  '$110\,\mu$A cm$^{-2}$', fontsize=12,transform=ax5.transAxes)
+plt.text(0.3,0.95 ,'$190\,\mu$A cm$^{-2}$', fontsize=12,transform=ax6.transAxes)           
 
 
 
